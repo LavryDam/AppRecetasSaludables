@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
-const icon = require("../../assets/images/ImagenRecetas.jpg");
+const icon = require("../assets/images/ImagenRecetas.jpg");
 
 export default function HomeScreen() {
   return (
