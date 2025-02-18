@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 const icon = require("../assets/images/ImagenRecetas.jpg");
