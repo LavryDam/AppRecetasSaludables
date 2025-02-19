@@ -1,14 +1,14 @@
 import { StyleSheet, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Footer from "../app/components/ui/footer";
-import { Text } from "react-native";
+import Header from "../app/components/ui/header";
 
 //const icon = require("../assets/images/ImagenRecetas.jpg");
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Inicio</Text>
+      <Header />
       <StatusBar style="auto" />
       <Footer />
     </View>
