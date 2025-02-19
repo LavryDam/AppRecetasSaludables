@@ -4,18 +4,20 @@
     "slug": "AppRecetasSaludables",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/YummyLogo.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "AppRecetasSaludables",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dina.apprecetassaludables"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/imagenCocina.jpg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.dina.apprecetassaludables"
     },
     "web": {
       "bundler": "metro",

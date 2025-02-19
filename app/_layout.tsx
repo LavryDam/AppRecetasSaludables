@@ -5,7 +5,19 @@ import "react-native-reanimated";
 export default function RootLayout() {
   return (
     <>
-      <Stack />
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "#FFDAB9",
+          },
+          headerTintColor: "#000",
+          headerTitleStyle: {
+            fontSize: 18,
+          },
+          headerTitleAlign: "center",
+          headerShadowVisible: false,
+        }}
+      />
       <StatusBar style="auto" />
     </>
   );

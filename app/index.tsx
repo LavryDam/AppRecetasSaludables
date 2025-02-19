@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import Footer from "./components/ui/footer";
+import Footer from "../app/components/ui/footer";
 import { Text } from "react-native";
 
 //const icon = require("../assets/images/ImagenRecetas.jpg");
