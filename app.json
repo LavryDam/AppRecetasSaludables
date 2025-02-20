@@ -4,17 +4,20 @@
     "slug": "AppRecetasSaludables",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/splash.png",
     "scheme": "AppRecetasSaludables",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#E0F8E0"
+    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.dina.apprecetassaludables"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
+        "foregroundImage": "./assets/images/splash.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.dina.apprecetassaludables"
@@ -22,7 +25,7 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/splash.png"
     },
     "experiments": {
       "typedRoutes": true

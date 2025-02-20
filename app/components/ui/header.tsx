@@ -10,22 +10,24 @@ const Header = () => {
         source={img}
         style={{ width: 100, height: 100, borderRadius: 20 }}
       />
-      <Text style={styles.title}>Yummy Yummy</Text>
+      <Text style={[styles.title, styles.regular]}>Yummy Yummy</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   header: {
-    flexDirection: "row", // Alinea los elementos en fila
-    alignItems: "center", // Centra los elementos verticalmente
-    padding: 10, // Agrega algo de padding
-    gap: 15, // Espacio entre los elementos
-    marginBottom: 650, // Margen inferior
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 10,
+    gap: 15,
+    marginBottom: 650,
   },
   title: {
     fontSize: 24,
-    fontFamily: "Inter-Black",
+  },
+  regular: {
+    fontFamily: "Montserrat-Regular",
   },
 });
 

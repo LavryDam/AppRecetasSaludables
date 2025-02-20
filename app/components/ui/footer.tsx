@@ -12,12 +12,12 @@ const Footer = () => {
         <Ionicons
           style={styles.icon}
           name="home-outline"
-          size={24}
+          size={30}
           color="black"
         />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => router.push("/GuardarRecetas")}>
-        <Ionicons style={styles.icon} name="heart" size={24} color="black" />
+        <Ionicons style={styles.icon} name="heart" size={30} color="black" />
       </TouchableOpacity>
     </View>
   );
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     elevation: 3, // Para dispositivos Android, para que la sombra se vea
   },
   icon: {
-    marginBottom: 10,
+    marginBottom: 5,
   },
 });
 
