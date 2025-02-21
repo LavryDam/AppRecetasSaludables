@@ -1,16 +1,18 @@
 import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 
-const img = require("../../../assets/images/libroCocina.jpg");
+const img = require("../../../assets/images/splash.png");
 
 const Header = () => {
   return (
     <View style={styles.header}>
       <Image
         source={img}
-        style={{ width: 100, height: 100, borderRadius: 20 }}
+        style={{ width: 130, height: 90, borderRadius: 20 }}
       />
-      <Text style={[styles.title, styles.regular]}>Yummy Yummy</Text>
+      <Text style={[styles.title, styles.regular]}>
+        Recetas Saludables e Internacionales
+      </Text>
     </View>
   );
 };
@@ -19,11 +21,12 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    padding: 10,
-    gap: 15,
+    paddingLeft: "20%",
+    paddingRight: "30%",
+    marginTop: 5,
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
   },
   regular: {
     fontFamily: "Montserrat-Regular",

@@ -1,29 +1,39 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 
 export default function recipeCard() {
   return (
     <View style={styles.container}>
-      <View style={styles.card}>
-        <Image
-          style={styles.cardImage}
-          source={require("../../../assets/images/ImagenRecetas.jpg")}
-        />
-        <View style={styles.cardContent}>
-          <Text style={styles.cardTitle}>Título de la receta</Text>
-          <Text style={styles.cardDescription}>Descripción de la receta</Text>
+      <ScrollView
+        contentContainerStyle={styles.scrollContainer}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.card}>
+          <Image
+            style={styles.cardImage}
+            source={require("../../../assets/images/ImagenRecetas2.jpg")}
+          />
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Pancakes</Text>
+            <Text style={styles.cardDescription}>
+              Con sólo 6 ingredientes, estos pancakes son fáciles de hacer y
+              deliciosos.
+            </Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.card}>
-        <Image
-          style={styles.cardImage}
-          source={require("../../../assets/images/ImagenRecetas.jpg")}
-        />
-        <View style={styles.cardContent}>
-          <Text style={styles.cardTitle}>Título de la receta</Text>
-          <Text style={styles.cardDescription}>Descripción de la receta</Text>
+        <View style={styles.card}>
+          <Image
+            style={styles.cardImage}
+            source={require("../../../assets/images/ImagenRecetas2.jpg")}
+          />
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Crema de cacao</Text>
+            <Text style={styles.cardDescription}>
+              Tiene 3 ingredientes y es una crema de cacao casera y saludable.
+            </Text>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -31,37 +41,41 @@ export default function recipeCard() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: "80%",
-    padding: 10,
+    paddingVertical: 10,
+  },
+  scrollContainer: {
+    paddingBottom: 50,
+    alignItems: "center",
   },
   card: {
-    width: "100%",
+    width: "95%",
     backgroundColor: "#fff",
-    borderRadius: 10,
+    borderRadius: 15,
     overflow: "hidden",
     marginBottom: 15,
-    elevation: 4, // sombra en Android
-    shadowColor: "#000", // sombra en iOS
+    elevation: 4,
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
   },
   cardImage: {
     width: "100%",
-    height: 300,
-    borderRadius: 10,
+    height: 160,
   },
   cardContent: {
     padding: 10,
+    backgroundColor: "#FAF3E0",
   },
   cardTitle: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: "bold",
     color: "#333",
+    marginBottom: 5,
   },
   cardDescription: {
-    fontSize: 14,
+    fontSize: 12, // Reducir el tamaño del texto
     color: "#666",
-    marginTop: 5,
+    lineHeight: 18,
   },
 });
