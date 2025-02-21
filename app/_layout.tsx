@@ -15,7 +15,6 @@ export default function RootLayout() {
             fontSize: 18,
           },
           headerTitleAlign: "center",
-          title: " ",
         }}
       />
       <StatusBar style="auto" />

@@ -16,6 +16,9 @@ const Footer = () => {
           color="black"
         />
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => router.push("/BuscarRecetas")}>
+        <Ionicons style={styles.icon} name="search" size={30} color="black" />
+      </TouchableOpacity>
       <TouchableOpacity onPress={() => router.push("/GuardarRecetas")}>
         <Ionicons style={styles.icon} name="heart" size={30} color="black" />
       </TouchableOpacity>
