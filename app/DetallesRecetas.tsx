@@ -51,18 +51,18 @@ const style = StyleSheet.create({
   },
   card: {
     backgroundColor: "#fff",
-    flex: 1,
-    marginTop: 240,
+    height: "70%",
+    marginTop: 170,
     borderTopLeftRadius: 56,
     borderTopRightRadius: 56,
     alignItems: "center",
     paddingHorizontal: 20,
   },
   card2: {
-    height: 300,
-    width: 300,
+    height: 200,
+    width: 200,
     position: "absolute",
-    top: -150,
+    top: -100,
   },
   imagen: {
     height: "100%",
@@ -73,7 +73,7 @@ const style = StyleSheet.create({
   title: {
     color: "#000",
     fontSize: 28,
-    marginTop: 160,
+    marginTop: 120,
     fontWeight: "bold",
     textAlign: "center",
   },
@@ -92,7 +92,7 @@ const style = StyleSheet.create({
   scrollView: {
     flex: 1,
     width: "100%",
-    marginTop: 16,
+    marginTop: 10,
   },
   scrollContent: {
     paddingBottom: 20,

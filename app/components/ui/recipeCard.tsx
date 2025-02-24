@@ -56,13 +56,16 @@ const styles = StyleSheet.create({
   scrollContainer: {
     paddingBottom: 50,
     alignItems: "center",
+    flexDirection: "row",
+    paddingHorizontal: 10,
+    justifyContent: "space-between",
   },
   card: {
-    width: "95%",
+    width: "45%",
+    marginHorizontal: 10,
     backgroundColor: "#fff",
     borderRadius: 15,
     overflow: "hidden",
-    marginBottom: 15,
     elevation: 4,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },

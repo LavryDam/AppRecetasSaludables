@@ -1,6 +1,4 @@
 import { StyleSheet, View } from "react-native";
-import { StatusBar } from "expo-status-bar";
-import Footer from "../app/components/ui/footer";
 import Header from "../app/components/ui/header";
 import RecipeCard from "../app/components/ui/recipeCard";
 
@@ -10,10 +8,8 @@ export default function HomeScreen() {
   return (
     <>
       <View style={styles.container}>
-        <StatusBar style="auto" />
         <Header />
         <RecipeCard />
-        <Footer />
       </View>
     </>
   );
