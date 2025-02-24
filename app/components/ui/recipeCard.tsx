@@ -1,5 +1,13 @@
+import { router } from "expo-router";
 import React from "react";
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  ScrollView,
+  Pressable,
+} from "react-native";
 
 export default function recipeCard() {
   return (
@@ -9,17 +17,19 @@ export default function recipeCard() {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.card}>
-          <Image
-            style={styles.cardImage}
-            source={require("../../../assets/images/ImagenRecetas2.jpg")}
-          />
-          <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Pancakes</Text>
-            <Text style={styles.cardDescription}>
-              Con sólo 6 ingredientes, estos pancakes son fáciles de hacer y
-              deliciosos.
-            </Text>
-          </View>
+          <Pressable onPress={() => router.push("/DetallesRecetas")}>
+            <Image
+              style={styles.cardImage}
+              source={require("../../../assets/images/ImagenRecetas2.jpg")}
+            />
+            <View style={styles.cardContent}>
+              <Text style={styles.cardTitle}>Pancakes</Text>
+              <Text style={styles.cardDescription}>
+                Con sólo 6 ingredientes, estos pancakes son fáciles de hacer y
+                deliciosos.
+              </Text>
+            </View>
+          </Pressable>
         </View>
         <View style={styles.card}>
           <Image

@@ -1,27 +1,25 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
-import { useRouter } from "expo-router";
+import { View, StyleSheet, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 
 const Footer = () => {
-  const router = useRouter();
-
   return (
     <View style={styles.footer}>
-      <TouchableOpacity onPress={() => router.push("/")}>
+      <Pressable onPress={() => router.push("/")}>
         <Ionicons
           style={styles.icon}
           name="home-outline"
           size={30}
           color="black"
         />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => router.push("/BuscarRecetas")}>
+      </Pressable>
+      <Pressable onPress={() => router.push("/BuscarRecetas")}>
         <Ionicons style={styles.icon} name="search" size={30} color="black" />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => router.push("/GuardarRecetas")}>
+      </Pressable>
+      <Pressable onPress={() => router.push("/GuardarRecetas")}>
         <Ionicons style={styles.icon} name="heart" size={30} color="black" />
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 };
