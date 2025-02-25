@@ -9,9 +9,7 @@ export default function RootLayout() {
       <StatusBar style="auto" />
       <Stack
         screenOptions={{
-          headerStyle: {
-            backgroundColor: "#FFDAB9",
-          },
+          headerShown: false,
         }}
       >
         <Stack.Screen name="index" options={{ title: "" }} />

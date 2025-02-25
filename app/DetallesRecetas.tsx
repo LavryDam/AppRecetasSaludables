@@ -12,8 +12,8 @@ const DetallesRecetas = () => {
           <FontAwesome
             name="heart"
             size={30}
-            color="black"
-            style={{ position: "absolute", right: 16, bottom: 10 }}
+            color="green"
+            style={{ position: "absolute", right: 16, bottom: -35 }}
           />
         </Pressable>
       </SafeAreaView>
@@ -64,7 +64,7 @@ const style = StyleSheet.create({
   card: {
     backgroundColor: "#fff",
     height: "70%",
-    marginTop: 130,
+    marginTop: 155,
     borderTopLeftRadius: 56,
     borderTopRightRadius: 56,
     alignItems: "center",
