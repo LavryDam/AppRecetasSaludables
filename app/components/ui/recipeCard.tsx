@@ -15,6 +15,7 @@ export default function recipeCard() {
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
+        horizontal={false}
       >
         <View style={styles.card}>
           <Pressable onPress={() => router.push("/DetallesRecetas")}>
@@ -43,6 +44,54 @@ export default function recipeCard() {
             </Text>
           </View>
         </View>
+        <View style={styles.card}>
+          <Image
+            style={styles.cardImage}
+            source={require("../../../assets/images/ImagenRecetas2.jpg")}
+          />
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Crema de cacao</Text>
+            <Text style={styles.cardDescription}>
+              Tiene 3 ingredientes y es una crema de cacao casera y saludable.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.card}>
+          <Image
+            style={styles.cardImage}
+            source={require("../../../assets/images/ImagenRecetas2.jpg")}
+          />
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Crema de cacao</Text>
+            <Text style={styles.cardDescription}>
+              Tiene 3 ingredientes y es una crema de cacao casera y saludable.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.card}>
+          <Image
+            style={styles.cardImage}
+            source={require("../../../assets/images/ImagenRecetas2.jpg")}
+          />
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Crema de cacao</Text>
+            <Text style={styles.cardDescription}>
+              Tiene 3 ingredientes y es una crema de cacao casera y saludable.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.card}>
+          <Image
+            style={styles.cardImage}
+            source={require("../../../assets/images/ImagenRecetas2.jpg")}
+          />
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Crema de cacao</Text>
+            <Text style={styles.cardDescription}>
+              Tiene 3 ingredientes y es una crema de cacao casera y saludable.
+            </Text>
+          </View>
+        </View>
       </ScrollView>
     </View>
   );
@@ -57,12 +106,13 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
     alignItems: "center",
     flexDirection: "row",
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
     justifyContent: "space-between",
+    flexWrap: "wrap",
   },
   card: {
     width: "45%",
-    marginHorizontal: 10,
+    marginBottom: 15,
     backgroundColor: "#fff",
     borderRadius: 15,
     overflow: "hidden",

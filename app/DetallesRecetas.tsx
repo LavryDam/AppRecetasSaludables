@@ -1,10 +1,22 @@
+import { FontAwesome } from "@expo/vector-icons";
 import React from "react";
-import { ScrollView } from "react-native";
+import { Pressable, ScrollView } from "react-native";
 import { StyleSheet, View, Image, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const DetallesRecetas = () => {
   return (
     <View style={style.container}>
+      <SafeAreaView style={{ flexDirection: "row", padding: 5 }}>
+        <Pressable style={{ flex: 1 }}>
+          <FontAwesome
+            name="heart"
+            size={30}
+            color="black"
+            style={{ position: "absolute", right: 16, bottom: 10 }}
+          />
+        </Pressable>
+      </SafeAreaView>
       <View style={style.card}>
         <View style={style.card2}>
           <Image
@@ -52,11 +64,11 @@ const style = StyleSheet.create({
   card: {
     backgroundColor: "#fff",
     height: "70%",
-    marginTop: 170,
+    marginTop: 130,
     borderTopLeftRadius: 56,
     borderTopRightRadius: 56,
     alignItems: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: 25,
   },
   card2: {
     height: 200,
