@@ -6,7 +6,7 @@ import { router } from "expo-router";
 const Footer = () => {
   return (
     <View style={styles.footer}>
-      <Pressable onPress={() => router.push("/")}>
+      <Pressable onPress={() => router.replace("/")}>
         <Ionicons
           style={styles.icon}
           name="home-outline"
@@ -14,10 +14,10 @@ const Footer = () => {
           color="black"
         />
       </Pressable>
-      <Pressable onPress={() => router.push("/BuscarRecetas")}>
+      <Pressable onPress={() => router.replace("/BuscarRecetas")}>
         <Ionicons style={styles.icon} name="search" size={30} color="black" />
       </Pressable>
-      <Pressable onPress={() => router.push("/GuardarRecetas")}>
+      <Pressable onPress={() => router.replace("/GuardarRecetas")}>
         <Ionicons style={styles.icon} name="heart" size={30} color="black" />
       </Pressable>
     </View>
