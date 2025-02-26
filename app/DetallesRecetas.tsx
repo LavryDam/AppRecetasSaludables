@@ -1,12 +1,24 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
-import React from "react";
-import { Pressable, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { Alert, Pressable, ScrollView } from "react-native";
 import { StyleSheet, View, Image, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const DetallesRecetas = () => {
   const navigation = useNavigation();
+
+  const [isSaved, setIsSaved] = useState(false); // Estado para manejar si la receta está guardada
+
+  const toggleSaveRecipe = () => {
+    setIsSaved(!isSaved); // Alternar entre guardado y no guardado
+    Alert.alert(
+      isSaved ? "Receta retirada" : "Receta guardada",
+      isSaved
+        ? "La receta se ha eliminado de tus favoritas."
+        : "La receta se ha agregado a tus favoritas.",
+    );
+  };
 
   return (
     <View style={style.container}>
@@ -15,8 +27,9 @@ const DetallesRecetas = () => {
           <FontAwesome
             name="heart"
             size={30}
-            color="violet"
+            color={isSaved ? "red" : "violet"}
             style={{ position: "absolute", right: 16, bottom: -35 }}
+            onPress={toggleSaveRecipe}
           />
           <FontAwesome
             name="arrow-left"
