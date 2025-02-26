@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
     alignItems: "center",
     flexDirection: "row",
-    paddingHorizontal: Platform.OS === "ios" ? "8%" : "30%",
+    paddingHorizontal: Platform.OS === "ios" ? "8%" : "4%",
     justifyContent: "space-between",
     flexWrap: "wrap",
   },

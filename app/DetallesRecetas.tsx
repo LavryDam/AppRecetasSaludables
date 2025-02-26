@@ -1,10 +1,13 @@
 import { FontAwesome } from "@expo/vector-icons";
+import { useNavigation } from "expo-router";
 import React from "react";
 import { Pressable, ScrollView } from "react-native";
 import { StyleSheet, View, Image, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const DetallesRecetas = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={style.container}>
       <SafeAreaView style={{ flexDirection: "row", padding: 5 }}>
@@ -12,8 +15,15 @@ const DetallesRecetas = () => {
           <FontAwesome
             name="heart"
             size={30}
-            color="green"
+            color="violet"
             style={{ position: "absolute", right: 16, bottom: -35 }}
+          />
+          <FontAwesome
+            name="arrow-left"
+            size={30}
+            color="black"
+            style={{ position: "absolute", left: 16, bottom: -35 }}
+            onPress={() => navigation.goBack()}
           />
         </Pressable>
       </SafeAreaView>
@@ -64,7 +74,7 @@ const style = StyleSheet.create({
   card: {
     backgroundColor: "#fff",
     height: "70%",
-    marginTop: 155,
+    marginTop: 158,
     borderTopLeftRadius: 56,
     borderTopRightRadius: 56,
     alignItems: "center",
