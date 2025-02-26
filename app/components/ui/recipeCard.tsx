@@ -1,5 +1,6 @@
 import { router } from "expo-router";
 import React from "react";
+import { Platform } from "react-native";
 import {
   View,
   Text,
@@ -17,6 +18,33 @@ export default function recipeCard() {
         showsVerticalScrollIndicator={false}
         horizontal={false}
       >
+        <View style={styles.card}>
+          <Pressable onPress={() => router.push("/DetallesRecetas")}>
+            <Image
+              style={styles.cardImage}
+              source={require("../../../assets/images/ImagenRecetas2.jpg")}
+            />
+            <View style={styles.cardContent}>
+              <Text style={styles.cardTitle}>Pancakes</Text>
+              <Text style={styles.cardDescription}>
+                Con sólo 6 ingredientes, estos pancakes son fáciles de hacer y
+                deliciosos.
+              </Text>
+            </View>
+          </Pressable>
+        </View>
+        <View style={styles.card}>
+          <Image
+            style={styles.cardImage}
+            source={require("../../../assets/images/ImagenRecetas2.jpg")}
+          />
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Crema de cacao</Text>
+            <Text style={styles.cardDescription}>
+              Tiene 3 ingredientes y es una crema de cacao casera y saludable.
+            </Text>
+          </View>
+        </View>
         <View style={styles.card}>
           <Pressable onPress={() => router.push("/DetallesRecetas")}>
             <Image
@@ -68,35 +96,11 @@ export default function recipeCard() {
             </Text>
           </View>
         </View>
-        <View style={styles.card}>
-          <Image
-            style={styles.cardImage}
-            source={require("../../../assets/images/ImagenRecetas2.jpg")}
-          />
-          <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Crema de cacao</Text>
-            <Text style={styles.cardDescription}>
-              Tiene 3 ingredientes y es una crema de cacao casera y saludable.
-            </Text>
-          </View>
-        </View>
-        <View style={styles.card}>
-          <Image
-            style={styles.cardImage}
-            source={require("../../../assets/images/ImagenRecetas2.jpg")}
-          />
-          <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Crema de cacao</Text>
-            <Text style={styles.cardDescription}>
-              Tiene 3 ingredientes y es una crema de cacao casera y saludable.
-            </Text>
-          </View>
-        </View>
       </ScrollView>
     </View>
   );
 }
-
+//height: Platform.OS === "ios" ? "8%" : "6%",
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -106,7 +110,7 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
     alignItems: "center",
     flexDirection: "row",
-    paddingHorizontal: 15,
+    paddingHorizontal: Platform.OS === "ios" ? "8%" : "30%",
     justifyContent: "space-between",
     flexWrap: "wrap",
   },
