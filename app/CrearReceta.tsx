@@ -4,14 +4,13 @@ import {
   Text,
   TextInput,
   StyleSheet,
-  ScrollView,
-  Button,
   Alert,
   SafeAreaView,
   Pressable,
+  Platform,
 } from "react-native";
 import Footer from "./components/ui/footer";
-import { FontAwesome } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import { router } from "expo-router";
 
 export default function CrearReceta() {
@@ -33,14 +32,17 @@ export default function CrearReceta() {
 
   return (
     <>
-      <ScrollView style={styles.scrollContainer}>
+      <View style={styles.viewContainer}>
         <SafeAreaView style={{ flexDirection: "row", padding: 5 }}>
           <Pressable style={{ flex: 1 }}>
-            <FontAwesome
+            <Feather
               name="arrow-left"
               size={30}
-              color="black"
-              style={{ position: "absolute", left: 16, bottom: -90 }}
+              style={{
+                position: "absolute",
+                left: 16,
+                bottom: Platform.OS === "ios" ? -45 : -90,
+              }}
               onPress={() => router.replace("/")}
             />
           </Pressable>
@@ -67,27 +69,25 @@ export default function CrearReceta() {
             onChangeText={setSteps}
             multiline
           />
-          <Button
-            title="Guardar Receta"
-            onPress={handleSaveRecipe}
-            color="#4CAF50"
-          />
+          <Pressable style={styles.button} onPress={handleSaveRecipe}>
+            <Text style={styles.buttonText}>Guardar receta</Text>
+          </Pressable>
         </View>
-      </ScrollView>
+      </View>
       <Footer />
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollContainer: {
+  viewContainer: {
     flex: 1,
     backgroundColor: "#E0F8E0",
   },
   container: {
     flex: 1,
     padding: 20,
-    marginTop: 80,
+    marginTop: Platform.OS === "ios" ? 40 : 80,
   },
   title: {
     fontSize: 24,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
-    borderColor: "#ccc",
+    borderColor: "#333",
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 10,
@@ -107,6 +107,18 @@ const styles = StyleSheet.create({
   },
   textArea: {
     height: 100,
-    textAlignVertical: "top", // Para que el texto comience desde la parte superior
+    textAlignVertical: "top",
+  },
+  button: {
+    backgroundColor: "#FFDAB9",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+  },
+  buttonText: {
+    color: "#333",
+    fontSize: 16,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
