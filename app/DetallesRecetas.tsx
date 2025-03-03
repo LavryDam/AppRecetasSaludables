@@ -1,4 +1,4 @@
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, Feather } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
 import React, { useState } from "react";
 import { Alert, Pressable, ScrollView } from "react-native";
@@ -31,11 +31,11 @@ const DetallesRecetas = () => {
             style={{ position: "absolute", right: 16, bottom: -35 }}
             onPress={toggleSaveRecipe}
           />
-          <FontAwesome
+          <Feather
             name="arrow-left"
-            size={30}
+            size={34}
             color="black"
-            style={{ position: "absolute", left: 16, bottom: -35 }}
+            style={{ position: "absolute", left: 16, bottom: -38 }}
             onPress={() => navigation.goBack()}
           />
         </Pressable>
@@ -52,6 +52,7 @@ const DetallesRecetas = () => {
           contentContainerStyle={style.scrollContent}
           style={style.scrollView}
           showsVerticalScrollIndicator={false}
+          bounces={false}
         >
           <Text style={style.text}> Ingredientes: </Text>
           <Text style={style.description}>
@@ -86,7 +87,7 @@ const style = StyleSheet.create({
   },
   card: {
     backgroundColor: "#fff",
-    height: "70%",
+    height: "65%",
     marginTop: 158,
     borderTopLeftRadius: 56,
     borderTopRightRadius: 56,
@@ -127,9 +128,8 @@ const style = StyleSheet.create({
   scrollView: {
     flex: 1,
     width: "100%",
-    marginTop: 10,
   },
   scrollContent: {
-    paddingBottom: 20,
+    paddingBottom: 150,
   },
 });
