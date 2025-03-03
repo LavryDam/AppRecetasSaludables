@@ -1,7 +1,7 @@
 import { FontAwesome, Feather } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
 import React, { useState } from "react";
-import { Alert, Pressable, ScrollView } from "react-native";
+import { Alert, Platform, Pressable, ScrollView } from "react-native";
 import { StyleSheet, View, Image, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -87,7 +87,7 @@ const style = StyleSheet.create({
   },
   card: {
     backgroundColor: "#fff",
-    height: "65%",
+    height: Platform.OS === "ios" ? "65%" : "70%",
     marginTop: 158,
     borderTopLeftRadius: 56,
     borderTopRightRadius: 56,
@@ -130,6 +130,6 @@ const style = StyleSheet.create({
     width: "100%",
   },
   scrollContent: {
-    paddingBottom: 150,
+    paddingBottom: 90,
   },
 });
