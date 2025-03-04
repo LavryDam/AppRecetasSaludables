@@ -40,6 +40,14 @@ const Footer = () => {
       <Pressable onPress={() => handleNavigation("/GuardarRecetas")}>
         <Ionicons style={styles.icon} name="heart" size={25} color="black" />
       </Pressable>
+      <Pressable onPress={() => handleNavigation("/")}>
+        <Ionicons
+          style={styles.icon}
+          name="person-outline"
+          size={25}
+          color="black"
+        />
+      </Pressable>
     </View>
   );
 };
@@ -57,7 +65,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     width: "100%",
-    height: Platform.OS === "ios" ? "6%" : "8%",
+    height: "8%",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: -2 },
     shadowOpacity: 0.1,

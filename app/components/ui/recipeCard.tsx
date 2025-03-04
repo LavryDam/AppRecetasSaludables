@@ -1,123 +1,45 @@
-import { router } from "expo-router";
 import React from "react";
-import { Platform } from "react-native";
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  ScrollView,
-  Pressable,
-} from "react-native";
+import { FlatList } from "react-native";
+import data from "../../components/ui/constants";
+import { View, Text, Image, StyleSheet } from "react-native";
 
 export default function recipeCard() {
   return (
     <View style={styles.container}>
-      <ScrollView
+      <FlatList
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
-        horizontal={false}
-      >
-        <View style={styles.card}>
-          <Pressable onPress={() => router.push("/DetallesRecetas")}>
+        data={data}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <View style={styles.card}>
             <Image
               style={styles.cardImage}
-              source={require("../../../assets/images/ImagenRecetas2.jpg")}
+              source={require("../../../assets/images/ImagenRecetas.jpg")}
             />
             <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Pancakes</Text>
-              <Text style={styles.cardDescription}>
-                Con sólo 6 ingredientes, estos pancakes son fáciles de hacer y
-                deliciosos.
-              </Text>
+              <Text style={styles.cardTitle}>{item.name}</Text>
+              <Text style={styles.cardDescription}>{item.description}</Text>
             </View>
-          </Pressable>
-        </View>
-        <View style={styles.card}>
-          <Image
-            style={styles.cardImage}
-            source={require("../../../assets/images/ImagenRecetas2.jpg")}
-          />
-          <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Crema de cacao</Text>
-            <Text style={styles.cardDescription}>
-              Tiene 3 ingredientes y es una crema de cacao casera y saludable.
-            </Text>
           </View>
-        </View>
-        <View style={styles.card}>
-          <Pressable onPress={() => router.push("/DetallesRecetas")}>
-            <Image
-              style={styles.cardImage}
-              source={require("../../../assets/images/ImagenRecetas2.jpg")}
-            />
-            <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Pancakes</Text>
-              <Text style={styles.cardDescription}>
-                Con sólo 6 ingredientes, estos pancakes son fáciles de hacer y
-                deliciosos.
-              </Text>
-            </View>
-          </Pressable>
-        </View>
-        <View style={styles.card}>
-          <Image
-            style={styles.cardImage}
-            source={require("../../../assets/images/ImagenRecetas2.jpg")}
-          />
-          <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Crema de cacao</Text>
-            <Text style={styles.cardDescription}>
-              Tiene 3 ingredientes y es una crema de cacao casera y saludable.
-            </Text>
-          </View>
-        </View>
-        <View style={styles.card}>
-          <Image
-            style={styles.cardImage}
-            source={require("../../../assets/images/ImagenRecetas2.jpg")}
-          />
-          <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Crema de cacao</Text>
-            <Text style={styles.cardDescription}>
-              Tiene 3 ingredientes y es una crema de cacao casera y saludable.
-            </Text>
-          </View>
-        </View>
-        <View style={styles.card}>
-          <Image
-            style={styles.cardImage}
-            source={require("../../../assets/images/ImagenRecetas2.jpg")}
-          />
-          <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Crema de cacao</Text>
-            <Text style={styles.cardDescription}>
-              Tiene 3 ingredientes y es una crema de cacao casera y saludable.
-            </Text>
-          </View>
-        </View>
-      </ScrollView>
+        )}
+      />
     </View>
   );
 }
-//height: Platform.OS === "ios" ? "8%" : "6%",
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingVertical: 10,
   },
   scrollContainer: {
-    paddingBottom: 50,
-    alignItems: "center",
-    flexDirection: "row",
-    paddingHorizontal: Platform.OS === "ios" ? "4%" : "8%",
-    justifyContent: "space-between",
-    flexWrap: "wrap",
+    paddingBottom: 60,
+    paddingHorizontal: 10,
   },
   card: {
-    width: "45%",
-    marginBottom: 15,
-    backgroundColor: "#fff",
+    flex: 1,
+    margin: 10,
     borderRadius: 15,
     overflow: "hidden",
     elevation: 4,
@@ -125,24 +47,28 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
+    backgroundColor: "#fff",
   },
   cardImage: {
     width: "100%",
-    height: 90,
+    height: 100,
+    resizeMode: "cover",
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
   },
   cardContent: {
-    padding: 10,
+    padding: 15,
     backgroundColor: "#FAF3E0",
   },
   cardTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
     color: "#333",
     marginBottom: 5,
   },
   cardDescription: {
-    fontSize: 12, // Reducir el tamaño del texto
+    fontSize: 14,
     color: "#666",
-    lineHeight: 18,
+    lineHeight: 20,
   },
 });
