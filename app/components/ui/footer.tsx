@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     width: "100%",
-    height: Platform.OS === "ios" ? "8%" : "6%",
+    height: Platform.OS === "ios" ? "6%" : "8%",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: -2 },
     shadowOpacity: 0.1,

@@ -28,14 +28,14 @@ const DetallesRecetas = () => {
             name="heart"
             size={30}
             color={isSaved ? "red" : "violet"}
-            style={{ position: "absolute", right: 16, bottom: -35 }}
+            style={{ position: "absolute", right: 16, bottom: -40 }}
             onPress={toggleSaveRecipe}
           />
           <Feather
             name="arrow-left"
             size={34}
             color="black"
-            style={{ position: "absolute", left: 16, bottom: -38 }}
+            style={{ position: "absolute", left: 16, bottom: -43 }}
             onPress={() => navigation.goBack()}
           />
         </Pressable>

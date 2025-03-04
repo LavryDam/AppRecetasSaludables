@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
     alignItems: "center",
     flexDirection: "row",
-    paddingHorizontal: Platform.OS === "ios" ? "8%" : "4%",
+    paddingHorizontal: Platform.OS === "ios" ? "4%" : "8%",
     justifyContent: "space-between",
     flexWrap: "wrap",
   },
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   },
   cardImage: {
     width: "100%",
-    height: 160,
+    height: 90,
   },
   cardContent: {
     padding: 10,
