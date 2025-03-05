@@ -1,15 +1,19 @@
 import { FontAwesome, Feather } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
 import React, { useState } from "react";
-import { Alert, FlatList, Platform, Pressable } from "react-native";
+import { Alert, FlatList, Platform, Pressable, ScrollView } from "react-native";
 import { StyleSheet, View, Image, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import data from "../app/components/ui/constants";
+import { useSearchParams } from "expo-router/build/hooks";
 
 const DetallesRecetas = () => {
   const navigation = useNavigation();
-
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
   const [isSaved, setIsSaved] = useState(false); // Estado para manejar si la receta está guardada
+
+  const recipe = id ? data.find((item) => item.id === parseInt(id)) : null;
 
   const toggleSaveRecipe = () => {
     setIsSaved(!isSaved); // Alternar entre guardado y no guardado
@@ -20,6 +24,15 @@ const DetallesRecetas = () => {
         : "La receta se ha agregado a tus favoritas.",
     );
   };
+
+  // Si no se encuentra la receta, mostramos un mensaje
+  if (!recipe) {
+    return (
+      <View style={style.container}>
+        <Text>Receta no encontrada</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={style.container}>
@@ -41,7 +54,6 @@ const DetallesRecetas = () => {
           />
         </Pressable>
       </SafeAreaView>
-
       <View style={style.card}>
         <View style={style.card2}>
           <Image
@@ -50,15 +62,22 @@ const DetallesRecetas = () => {
           />
         </View>
         <FlatList
-          data={data}
+          data={[recipe]}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <View>
-              <Text style={style.title}>{item.name}</Text>
-              <Text style={style.text}>Ingredientes:</Text>
-              <Text style={style.text}>{item.ingredients.join(", ")}</Text>
-              <Text style={style.description}>{item.description}</Text>
-            </View>
+            <ScrollView style={style.scrollContent}>
+              <View>
+                <Text style={style.title}>{item.name}</Text>
+                <Text style={style.text}>Ingredientes:</Text>
+                {item.ingredients.map((ingredient, index) => (
+                  <Text key={index} style={style.description}>
+                    • {ingredient}
+                  </Text>
+                ))}
+                <Text style={style.text}>Prepración:</Text>
+                <Text style={style.description}>{item.instructions}</Text>
+              </View>
+            </ScrollView>
           )}
           showsVerticalScrollIndicator={false}
         />
@@ -97,14 +116,14 @@ const style = StyleSheet.create({
   },
   title: {
     color: "#000",
-    fontSize: 28,
+    fontSize: 25,
     marginTop: 120,
     fontWeight: "bold",
     textAlign: "center",
   },
   text: {
     color: "#000",
-    fontSize: 20,
+    fontSize: 18,
     marginVertical: 16,
     marginRight: "60%",
     fontWeight: "bold",
@@ -112,6 +131,7 @@ const style = StyleSheet.create({
   description: {
     color: "#000",
     fontSize: 16,
+    lineHeight: 22,
     paddingHorizontal: 20,
   },
   scrollView: {
@@ -120,5 +140,7 @@ const style = StyleSheet.create({
   },
   scrollContent: {
     paddingBottom: 90,
+    width: "100%",
+    zIndex: 1,
   },
 });

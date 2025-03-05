@@ -7,13 +7,15 @@ import { router } from "expo-router";
 export default function recipeCard() {
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => router.replace("/DetallesRecetas")}>
-        <FlatList
-          contentContainerStyle={styles.scrollContainer}
-          showsVerticalScrollIndicator={false}
-          data={data}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
+      <FlatList
+        contentContainerStyle={styles.scrollContainer}
+        showsVerticalScrollIndicator={false}
+        data={data}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <Pressable
+            onPress={() => router.push(`/DetallesRecetas?id=${item.id}`)}
+          >
             <View style={styles.card}>
               <Image
                 style={styles.cardImage}
@@ -24,9 +26,9 @@ export default function recipeCard() {
                 <Text style={styles.cardDescription}>{item.description}</Text>
               </View>
             </View>
-          )}
-        />
-      </Pressable>
+          </Pressable>
+        )}
+      />
     </View>
   );
 }
