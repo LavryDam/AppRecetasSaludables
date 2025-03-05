@@ -1,9 +1,10 @@
 import { FontAwesome, Feather } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
 import React, { useState } from "react";
-import { Alert, Platform, Pressable, ScrollView } from "react-native";
+import { Alert, FlatList, Platform, Pressable } from "react-native";
 import { StyleSheet, View, Image, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import data from "../app/components/ui/constants";
 
 const DetallesRecetas = () => {
   const navigation = useNavigation();
@@ -40,6 +41,7 @@ const DetallesRecetas = () => {
           />
         </Pressable>
       </SafeAreaView>
+
       <View style={style.card}>
         <View style={style.card2}>
           <Image
@@ -47,32 +49,19 @@ const DetallesRecetas = () => {
             source={require("../assets/images/imagenCocina.jpg")}
           />
         </View>
-        <Text style={style.title}> Pancakes </Text>
-        <ScrollView
-          contentContainerStyle={style.scrollContent}
-          style={style.scrollView}
+        <FlatList
+          data={data}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <View>
+              <Text style={style.title}>{item.name}</Text>
+              <Text style={style.text}>Ingredientes:</Text>
+              <Text style={style.text}>{item.ingredients.join(", ")}</Text>
+              <Text style={style.description}>{item.description}</Text>
+            </View>
+          )}
           showsVerticalScrollIndicator={false}
-          bounces={false}
-        >
-          <Text style={style.text}> Ingredientes: </Text>
-          <Text style={style.description}>
-            - 1 taza de harina de trigo {"\n"}- 1 taza de leche {"\n"}- 1 huevo{" "}
-            {"\n"}- 1 cucharada de azúcar {"\n"}- 1 cucharada de polvo para
-            hornear {"\n"}- 1 cucharada de mantequilla derretida {"\n"}- 1 pizca
-            de sal
-          </Text>
-          <Text style={style.text}> Preparación: </Text>
-          <Text style={style.description}>
-            1. En un recipiente mezcla la harina, la leche, el huevo, el azúcar,
-            el polvo para hornear, la mantequilla y la sal.{"\n"}
-            2. Calienta un sartén y agrega un poco de mantequilla.{"\n"}
-            3. Vierte un poco de la mezcla en el sartén y cocina a fuego medio.
-            {"\n"}
-            4. Voltea el pancake y cocina por el otro lado.{"\n"}
-            5. Repite el proceso con el resto de la mezcla.{"\n"}
-            6. Sirve los pancakes con miel, mermelada o frutas.
-          </Text>
-        </ScrollView>
+        />
       </View>
     </View>
   );

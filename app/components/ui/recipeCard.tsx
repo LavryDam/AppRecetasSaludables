@@ -1,29 +1,32 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, Pressable } from "react-native";
 import data from "../../components/ui/constants";
 import { View, Text, Image, StyleSheet } from "react-native";
+import { router } from "expo-router";
 
 export default function recipeCard() {
   return (
     <View style={styles.container}>
-      <FlatList
-        contentContainerStyle={styles.scrollContainer}
-        showsVerticalScrollIndicator={false}
-        data={data}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Image
-              style={styles.cardImage}
-              source={require("../../../assets/images/ImagenRecetas.jpg")}
-            />
-            <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>{item.name}</Text>
-              <Text style={styles.cardDescription}>{item.description}</Text>
+      <Pressable onPress={() => router.replace("/DetallesRecetas")}>
+        <FlatList
+          contentContainerStyle={styles.scrollContainer}
+          showsVerticalScrollIndicator={false}
+          data={data}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <View style={styles.card}>
+              <Image
+                style={styles.cardImage}
+                source={require("../../../assets/images/ImagenRecetas.jpg")}
+              />
+              <View style={styles.cardContent}>
+                <Text style={styles.cardTitle}>{item.name}</Text>
+                <Text style={styles.cardDescription}>{item.description}</Text>
+              </View>
             </View>
-          </View>
-        )}
-      />
+          )}
+        />
+      </Pressable>
     </View>
   );
 }
