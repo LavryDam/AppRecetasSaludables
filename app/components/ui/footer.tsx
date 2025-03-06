@@ -8,7 +8,12 @@ const Footer = () => {
   const pathname = usePathname(); // obtiene la ruta actual
 
   const handleNavigation = (
-    route: "/" | "/BuscarRecetas" | "/GuardarRecetas" | "/CrearReceta",
+    route:
+      | "/"
+      | "/BuscarRecetas"
+      | "/GuardarRecetas"
+      | "/CrearReceta"
+      | "/loginScreen",
   ) => {
     if (pathname !== route) {
       // Navega solo si no estás ya en la ruta actual
@@ -40,7 +45,7 @@ const Footer = () => {
       <Pressable onPress={() => handleNavigation("/GuardarRecetas")}>
         <Ionicons style={styles.icon} name="heart" size={25} color="black" />
       </Pressable>
-      <Pressable onPress={() => handleNavigation("/")}>
+      <Pressable onPress={() => handleNavigation("/loginScreen")}>
         <Ionicons
           style={styles.icon}
           name="person-outline"

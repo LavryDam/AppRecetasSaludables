@@ -105,8 +105,8 @@ const style = StyleSheet.create({
   card2: {
     height: 200,
     width: 200,
-    position: "absolute",
     top: -100,
+    position: "absolute",
   },
   imagen: {
     height: "100%",
@@ -134,13 +134,7 @@ const style = StyleSheet.create({
     lineHeight: 22,
     paddingHorizontal: 20,
   },
-  scrollView: {
-    flex: 1,
-    width: "100%",
-  },
   scrollContent: {
     paddingBottom: 90,
-    width: "100%",
-    zIndex: 1,
   },
 });
