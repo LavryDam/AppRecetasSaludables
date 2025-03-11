@@ -21,6 +21,7 @@ export default function RecipeCard() {
   };
 
   // Filtra las recetas según la categoría seleccionada
+  //array, comprueba si la categoría que recibe es la misma que está buscando, si es así la muestra.
   const filteredData = selectedCategory
     ? data.filter((recipe) => recipe.categories.includes(selectedCategory))
     : data;
