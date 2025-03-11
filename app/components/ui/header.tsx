@@ -8,7 +8,7 @@ const Header = () => {
     <View style={styles.header}>
       <Image
         source={img}
-        style={{ width: 130, height: 90, borderRadius: 20 }}
+        style={{ width: 110, height: 80, borderRadius: 20 }}
       />
       <Text style={[styles.title, styles.regular]}>
         Recetas Saludables e Internacionales
@@ -21,12 +21,13 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    paddingLeft: "20%",
-    paddingRight: "30%",
+    paddingLeft: "10%",
+    paddingRight: "25%",
     marginTop: 55,
   },
   title: {
-    fontSize: 20,
+    fontSize: 15,
+    fontWeight: "bold",
   },
   regular: {
     fontFamily: "Montserrat-Regular",
