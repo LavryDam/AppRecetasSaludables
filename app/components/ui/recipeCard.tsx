@@ -75,17 +75,20 @@ export default function RecipeCard() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 10,
+    paddingVertical: 15,
   },
   categoriesContainer: {
     paddingHorizontal: 10,
-    paddingBottom: 10,
+    paddingBottom: 15,
+    minHeight: 50, // Asegura que las categorías tengan espacio suficiente
+    alignItems: "center", // Centra las categorías verticalmente
   },
   categoryButton: {
     backgroundColor: "#FAF3E0",
-    paddingHorizontal: 15,
+    paddingHorizontal: 20,
+    paddingVertical: 4,
     borderRadius: 20,
-    marginHorizontal: 5,
+    marginHorizontal: 8,
     borderWidth: 1,
     borderColor: "#E0E0E0",
   },
@@ -96,6 +99,7 @@ const styles = StyleSheet.create({
   categoryText: {
     fontSize: 14,
     color: "#333",
+    textAlign: "center", // Centra el texto dentro del botón
   },
   categoryTextActive: {
     color: "#FFF",
@@ -106,7 +110,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   card: {
-    flex: 1,
+    flexDirection: "row",
     margin: 10,
     borderRadius: 15,
     overflow: "hidden",
@@ -118,24 +122,24 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   cardImage: {
-    width: "100%",
-    height: 100,
+    width: 120,
+    height: 145,
     resizeMode: "cover",
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
   },
   cardContent: {
+    flex: 1,
     padding: 15,
+    justifyContent: "center",
     backgroundColor: "#FAF3E0",
   },
   cardTitle: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: "bold",
     color: "#333",
     marginBottom: 5,
   },
   cardDescription: {
-    fontSize: 14,
+    fontSize: 13,
     color: "#666",
     lineHeight: 20,
   },
