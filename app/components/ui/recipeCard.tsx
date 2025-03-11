@@ -16,8 +16,14 @@ export default function RecipeCard() {
   ];
 
   const handleCategorySelect = (category: string) => {
-    setSelectedCategory(category);
+    // Si la categoría seleccionada ya está activa, la deseleccionamos
+    setSelectedCategory(selectedCategory === category ? "" : category);
   };
+
+  // Filtra las recetas según la categoría seleccionada
+  const filteredData = selectedCategory
+    ? data.filter((recipe) => recipe.categories.includes(selectedCategory))
+    : data;
 
   return (
     <View style={styles.container}>
@@ -49,7 +55,7 @@ export default function RecipeCard() {
       <FlatList
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
-        data={data}
+        data={filteredData}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <Pressable
