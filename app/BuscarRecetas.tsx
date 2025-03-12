@@ -21,7 +21,7 @@ export default function BuscarRecetas() {
           <Pressable>
             <Feather
               name="arrow-left"
-              size={34}
+              size={30}
               color="black"
               style={{ position: "absolute", left: 2, bottom: 20 }}
               onPress={() => router.replace("/")}
