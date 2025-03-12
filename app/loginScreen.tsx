@@ -1,14 +1,38 @@
 import React from "react";
-import { View, Text, TextInput, StyleSheet, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  Pressable,
+  SafeAreaView,
+} from "react-native";
 import Header from "./components/ui/header";
+import { Feather, Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 
 const LoginScreen = () => {
+  const handleGoogleSignIn = () => {
+    console.log("Iniciar sesión con Google");
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Header />
       </View>
-      <Text style={styles.title}>Iniciar Sesión</Text>
+      <SafeAreaView>
+        <Pressable>
+          <Feather
+            name="arrow-left"
+            size={30}
+            color="black"
+            style={{ position: "absolute", right: 130, bottom: -68 }}
+            onPress={() => router.replace("/")}
+          />
+        </Pressable>
+      </SafeAreaView>
+      <Text style={styles.title}>Iniciar sesión</Text>
       <TextInput
         style={styles.input}
         placeholder="Correo electrónico"
@@ -26,6 +50,11 @@ const LoginScreen = () => {
 
       <Pressable style={styles.button}>
         <Text style={styles.buttonText}>Entrar</Text>
+      </Pressable>
+
+      <Text style={styles.orText}>O inicia sesión con:</Text>
+      <Pressable style={styles.iconButton} onPress={handleGoogleSignIn}>
+        <Ionicons name="logo-google" size={25} color="black" />
       </Pressable>
 
       <Pressable>
@@ -74,6 +103,25 @@ const styles = StyleSheet.create({
     color: "#333",
     fontSize: 18,
     fontWeight: "bold",
+  },
+  orText: {
+    fontSize: 16,
+    color: "#333",
+    marginVertical: 10,
+  },
+  iconButton: {
+    width: 60,
+    height: 60,
+    backgroundColor: "transparent",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 30,
+    marginBottom: 15,
+    borderWidth: 1,
+    borderColor: "#ccc",
+  },
+  icon: {
+    resizeMode: "contain",
   },
   signupText: {
     color: "#333",

@@ -9,7 +9,6 @@ import {
   Pressable,
   Platform,
 } from "react-native";
-import Footer from "./components/ui/footer";
 import { Feather } from "@expo/vector-icons";
 import { router } from "expo-router";
 
@@ -74,7 +73,6 @@ export default function CrearReceta() {
           </Pressable>
         </View>
       </View>
-      <Footer />
     </>
   );
 }

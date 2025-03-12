@@ -96,7 +96,7 @@ const style = StyleSheet.create({
   card: {
     backgroundColor: "#fff",
     height: Platform.OS === "ios" ? "65%" : "70%",
-    marginTop: 158,
+    marginTop: 190,
     borderTopLeftRadius: 56,
     borderTopRightRadius: 56,
     alignItems: "center",
