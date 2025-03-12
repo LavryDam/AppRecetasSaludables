@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   },
   card: {
     flexDirection: "row",
-    margin: 10,
+    margin: 15,
     borderRadius: 15,
     overflow: "hidden",
     elevation: 4,
@@ -129,14 +129,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   cardImage: {
-    width: 120,
-    height: 145,
+    width: 125,
+    height: 140,
     resizeMode: "cover",
   },
   cardContent: {
     flex: 1,
     padding: 15,
-    justifyContent: "center",
     backgroundColor: "#FAF3E0",
   },
   cardTitle: {
