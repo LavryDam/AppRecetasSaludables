@@ -9,7 +9,6 @@ const LoginScreen = () => {
         <Header />
       </View>
       <Text style={styles.title}>Iniciar Sesión</Text>
-
       <TextInput
         style={styles.input}
         placeholder="Correo electrónico"
@@ -50,7 +49,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#333",
     marginBottom: 20,
-    marginTop: "20%",
+    marginTop: "10%",
   },
   input: {
     width: "100%",
@@ -81,7 +80,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   header: {
-    marginTop: "5%",
-    marginRight: "20%",
+    marginRight: "45%",
+    marginLeft: "20%",
   },
 });
