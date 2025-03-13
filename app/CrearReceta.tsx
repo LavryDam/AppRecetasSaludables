@@ -11,11 +11,13 @@ import {
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { router } from "expo-router";
+import * as ImagePicker from "expo-image-picker";
 
 export default function CrearReceta() {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [steps, setSteps] = useState("");
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleSaveRecipe = () => {
     if (!title || !ingredients || !steps) {
@@ -27,6 +29,20 @@ export default function CrearReceta() {
     setTitle("");
     setIngredients("");
     setSteps("");
+  };
+
+  const pickImageAsync = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ["images"],
+      allowsEditing: true,
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      setSelectedImage(result.assets[0].uri);
+    } else {
+      Alert.alert("Atención", "No seleccionaste ninguna imagen.");
+    }
   };
 
   return (
@@ -68,6 +84,22 @@ export default function CrearReceta() {
             onChangeText={setSteps}
             multiline
           />
+          <Pressable
+            style={({ pressed }) => [
+              styles.imageButtonSmall,
+              pressed && styles.imageButtonSmallPressed,
+            ]}
+            onPress={pickImageAsync}
+          >
+            <Feather
+              name="upload"
+              size={16}
+              color="#333"
+              style={{ marginRight: 5 }}
+            />
+            <Text style={styles.imageButtonSmallText}>Agregar imagen</Text>
+          </Pressable>
+
           <Pressable style={styles.button} onPress={handleSaveRecipe}>
             <Text style={styles.buttonText}>Guardar receta</Text>
           </Pressable>
@@ -111,12 +143,35 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFDAB9",
     paddingVertical: 12,
     paddingHorizontal: 20,
-    borderRadius: 8,
+    borderRadius: 20,
+    marginTop: 30,
+    elevation: 2,
+    width: "60%",
+    alignSelf: "center",
   },
   buttonText: {
     color: "#333",
     fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  imageButtonSmall: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#98D7C2", // Verde suave acorde con el fondo
+    paddingVertical: 10,
+    borderRadius: 20,
+    marginBottom: 15,
+    elevation: 2,
+    width: "50%",
+  },
+  imageButtonSmallPressed: {
+    backgroundColor: "#7CBFA7", // Color más oscuro al presionar
+  },
+  imageButtonSmallText: {
+    color: "#333",
+    fontSize: 14,
+    fontWeight: "500",
   },
 });
