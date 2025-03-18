@@ -8,13 +8,33 @@ export default function RootLayout() {
       <StatusBar style="auto" />
       <Stack
         screenOptions={{
-          headerShown: false,
+          headerShown: true,
         }}
       >
-        <Stack.Screen name="index" options={{ title: "" }} />
-        <Stack.Screen name="BuscarRecetas" options={{ title: "" }} />
-        <Stack.Screen name="DetallesRecetas" options={{ title: "" }} />
-        <Stack.Screen name="GuardarRecetas" options={{ title: "" }} />
+        <Stack.Screen
+          name="index"
+          options={{ title: "", headerShown: false }}
+        />
+        <Stack.Screen
+          name="BuscarRecetas"
+          options={{ title: "", headerShown: false }}
+        />
+        <Stack.Screen
+          name="CrearReceta"
+          options={{ title: "", headerShown: true }}
+        />
+        <Stack.Screen
+          name="DetallesRecetas"
+          options={{ title: "", headerShown: false }}
+        />
+        <Stack.Screen
+          name="GuardarRecetas"
+          options={{ title: "", headerShown: false }}
+        />
+        <Stack.Screen
+          name="loginScreen"
+          options={{ title: "", headerShown: false }}
+        />
       </Stack>
     </>
   );

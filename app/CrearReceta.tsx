@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Checkbox from "expo-checkbox";
 import {
   View,
   Text,
@@ -18,6 +19,13 @@ export default function CrearReceta() {
   const [ingredients, setIngredients] = useState("");
   const [steps, setSteps] = useState("");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isChecked, setChecked] = useState({
+    checkbox1: false,
+    checkbox2: false,
+    checkbox3: false,
+    checkbox4: false,
+    checkbox5: false,
+  });
 
   const handleSaveRecipe = () => {
     if (!title || !ingredients || !steps) {
@@ -43,6 +51,13 @@ export default function CrearReceta() {
     } else {
       Alert.alert("Atención", "No seleccionaste ninguna imagen.");
     }
+  };
+
+  const handleCheckBox = (key: keyof typeof isChecked) => {
+    setChecked((prevState) => ({
+      ...prevState,
+      [key]: !prevState[key], // Alterna el estado del checkbox específico
+    }));
   };
 
   return (
@@ -84,6 +99,45 @@ export default function CrearReceta() {
             onChangeText={setSteps}
             multiline
           />
+          <View style={styles.section}>
+            <Checkbox
+              style={styles.checkbox}
+              value={isChecked.checkbox1}
+              onValueChange={() => handleCheckBox("checkbox1")}
+              color={"#4CAF50"}
+            />
+            <Text style={styles.paragraph}>Desayuno/Merienda</Text>
+            <Checkbox
+              style={styles.checkbox}
+              value={isChecked.checkbox2}
+              onValueChange={() => handleCheckBox("checkbox2")}
+              color={"#4CAF50"}
+            />
+            <Text style={styles.paragraph}>Comida</Text>
+          </View>
+          <View style={styles.section}>
+            <Checkbox
+              style={styles.checkbox}
+              value={isChecked.checkbox3}
+              onValueChange={() => handleCheckBox("checkbox3")}
+              color={"#4CAF50"}
+            />
+            <Text style={styles.paragraph}>Cena</Text>
+            <Checkbox
+              style={styles.checkbox}
+              value={isChecked.checkbox4}
+              onValueChange={() => handleCheckBox("checkbox4")}
+              color={"#4CAF50"}
+            />
+            <Text style={styles.paragraph}>Vegetariana</Text>
+            <Checkbox
+              style={styles.checkbox}
+              value={isChecked.checkbox5}
+              onValueChange={() => handleCheckBox("checkbox5")}
+              color={"#4CAF50"}
+            />
+            <Text style={styles.paragraph}>Vegana</Text>
+          </View>
           <Pressable
             style={({ pressed }) => [
               styles.imageButtonSmall,
@@ -99,7 +153,6 @@ export default function CrearReceta() {
             />
             <Text style={styles.imageButtonSmallText}>Agregar imagen</Text>
           </Pressable>
-
           <Pressable style={styles.button} onPress={handleSaveRecipe}>
             <Text style={styles.buttonText}>Guardar receta</Text>
           </Pressable>
@@ -128,7 +181,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
-    borderColor: "#333",
+    borderColor: "#ccc",
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 10,
@@ -163,6 +216,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 20,
     marginBottom: 15,
+    marginTop: 15,
     elevation: 2,
     width: "50%",
   },
@@ -173,5 +227,15 @@ const styles = StyleSheet.create({
     color: "#333",
     fontSize: 14,
     fontWeight: "500",
+  },
+  section: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  paragraph: {
+    fontSize: 15,
+  },
+  checkbox: {
+    margin: 8,
   },
 });
