@@ -43,8 +43,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFDAB9",
     paddingVertical: 20,
     alignItems: "center",
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
     elevation: 5,
     shadowColor: "#000",
     shadowOpacity: 0.2,

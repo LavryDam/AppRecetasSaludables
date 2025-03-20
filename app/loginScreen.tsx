@@ -7,7 +7,6 @@ import {
   Pressable,
   SafeAreaView,
 } from "react-native";
-import Header from "./components/ui/header";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 
@@ -18,21 +17,15 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Header />
-      </View>
-      <SafeAreaView>
-        <Pressable>
-          <Feather
-            name="arrow-left"
-            size={30}
-            color="black"
-            style={{ position: "absolute", right: 130, bottom: -68 }}
-            onPress={() => router.replace("/")}
-          />
+      <SafeAreaView style={styles.backContainer}>
+        <Pressable onPress={() => router.replace("/")}>
+          <Feather name="arrow-left" size={30} color="black" />
         </Pressable>
+        <Text style={styles.backText}>Volver</Text>
       </SafeAreaView>
-      <Text style={styles.title}>Iniciar sesión</Text>
+      <Text style={styles.title}>Hola Yummy</Text>
+      <Text style={styles.subtitle}>Inicia sesión para continuar</Text>
+
       <TextInput
         style={styles.input}
         placeholder="Correo electrónico"
@@ -40,7 +33,6 @@ const LoginScreen = () => {
         keyboardType="email-address"
         autoCapitalize="none"
       />
-
       <TextInput
         style={styles.input}
         placeholder="Contraseña"
@@ -49,12 +41,13 @@ const LoginScreen = () => {
       />
 
       <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>Entrar</Text>
+        <Text style={styles.buttonText}>Iniciar</Text>
       </Pressable>
 
       <Text style={styles.orText}>O inicia sesión con:</Text>
-      <Pressable style={styles.iconButton} onPress={handleGoogleSignIn}>
-        <Ionicons name="logo-google" size={25} color="black" />
+      <Pressable style={styles.googleButton} onPress={handleGoogleSignIn}>
+        <Ionicons name="logo-google" size={20} color="#fff" />
+        <Text style={styles.googleButtonText}>Continuar con Google</Text>
       </Pressable>
 
       <Pressable>
@@ -69,24 +62,42 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     backgroundColor: "#E0F8E0",
     paddingHorizontal: 20,
+    alignItems: "center",
+    justifyContent: "flex-start",
+    paddingTop: 80,
+  },
+  backContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    position: "absolute",
+    top: 20,
+    left: 20,
+  },
+  backText: {
+    fontSize: 20,
+    marginLeft: 10,
+    color: "#333",
   },
   title: {
-    fontSize: 28,
+    fontSize: 26,
     fontWeight: "bold",
     color: "#333",
-    marginBottom: 20,
-    marginTop: "10%",
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#666",
+    marginBottom: 30,
   },
   input: {
     width: "100%",
     height: 50,
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#ddd",
     borderRadius: 8,
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
     marginBottom: 15,
     backgroundColor: "#fff",
   },
@@ -97,11 +108,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 8,
-    marginBottom: 15,
+    marginBottom: 20,
   },
   buttonText: {
     color: "#333",
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: "bold",
   },
   orText: {
@@ -109,26 +120,25 @@ const styles = StyleSheet.create({
     color: "#333",
     marginVertical: 10,
   },
-  iconButton: {
-    width: 60,
-    height: 60,
-    backgroundColor: "transparent",
-    justifyContent: "center",
+  googleButton: {
+    flexDirection: "row",
     alignItems: "center",
-    borderRadius: 30,
-    marginBottom: 15,
-    borderWidth: 1,
-    borderColor: "#ccc",
+    justifyContent: "center",
+    width: "100%",
+    height: 50,
+    backgroundColor: "#DB4437",
+    borderRadius: 8,
+    marginBottom: 20,
   },
-  icon: {
-    resizeMode: "contain",
+  googleButtonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "500",
+    marginLeft: 10,
   },
   signupText: {
-    color: "#333",
+    color: "#007BFF",
     fontSize: 16,
-  },
-  header: {
-    marginRight: "45%",
-    marginLeft: "20%",
+    textDecorationLine: "underline",
   },
 });

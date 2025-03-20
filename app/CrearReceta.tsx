@@ -63,22 +63,20 @@ export default function CrearReceta() {
   return (
     <>
       <View style={styles.viewContainer}>
-        <SafeAreaView style={{ flexDirection: "row", padding: 5 }}>
-          <Pressable style={{ flex: 1 }}>
-            <Feather
-              name="arrow-left"
-              size={30}
-              style={{
-                position: "absolute",
-                left: 16,
-                bottom: Platform.OS === "ios" ? -45 : -90,
-              }}
-              onPress={() => router.replace("/")}
-            />
+        <SafeAreaView
+          style={{ flexDirection: "row", alignItems: "center", padding: 25 }}
+        >
+          <Pressable
+            style={{ flexDirection: "row", alignItems: "center" }}
+            onPress={() => router.replace("/")}
+          >
+            <Feather name="arrow-left" size={30} color="#333" />
+            <Text style={{ marginLeft: 8, fontSize: 20, color: "#333" }}>
+              Inicio
+            </Text>
           </Pressable>
         </SafeAreaView>
         <View style={styles.container}>
-          <Text style={styles.title}>Nueva receta</Text>
           <TextInput
             style={styles.input}
             placeholder="Título de la receta"
@@ -154,7 +152,7 @@ export default function CrearReceta() {
             <Text style={styles.imageButtonSmallText}>Agregar imagen</Text>
           </Pressable>
           <Pressable style={styles.button} onPress={handleSaveRecipe}>
-            <Text style={styles.buttonText}>Guardar receta</Text>
+            <Text style={styles.buttonText}>Guardar</Text>
           </Pressable>
         </View>
       </View>
@@ -169,8 +167,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    padding: 20,
-    marginTop: Platform.OS === "ios" ? 40 : 80,
+    padding: 25,
+    marginTop: Platform.OS === "ios" ? 40 : -25,
   },
   title: {
     fontSize: 24,
@@ -195,11 +193,11 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#FFDAB9",
     paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 20,
+    paddingHorizontal: 10,
+    borderRadius: 8,
     marginTop: 30,
     elevation: 2,
-    width: "60%",
+    width: "100%",
     alignSelf: "center",
   },
   buttonText: {
