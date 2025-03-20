@@ -12,7 +12,7 @@ import { router } from "expo-router";
 
 const LoginScreen = () => {
   const handleGoogleSignIn = () => {
-    console.log("Iniciar sesión con Google");
+    alert("Google Sign In");
   };
 
   return (
@@ -25,7 +25,6 @@ const LoginScreen = () => {
       </SafeAreaView>
       <Text style={styles.title}>Hola Yummy</Text>
       <Text style={styles.subtitle}>Inicia sesión para continuar</Text>
-
       <TextInput
         style={styles.input}
         placeholder="Correo electrónico"
@@ -39,17 +38,14 @@ const LoginScreen = () => {
         placeholderTextColor="#aaa"
         secureTextEntry
       />
-
       <Pressable style={styles.button}>
         <Text style={styles.buttonText}>Iniciar</Text>
       </Pressable>
-
       <Text style={styles.orText}>O inicia sesión con:</Text>
       <Pressable style={styles.googleButton} onPress={handleGoogleSignIn}>
         <Ionicons name="logo-google" size={20} color="#fff" />
         <Text style={styles.googleButtonText}>Continuar con Google</Text>
       </Pressable>
-
       <Pressable>
         <Text style={styles.signupText}>¿No tienes cuenta? Regístrate</Text>
       </Pressable>
