@@ -23,7 +23,7 @@ export default function BuscarRecetas() {
               name="arrow-left"
               size={30}
               color="black"
-              style={{ position: "absolute", left: 2, bottom: 20 }}
+              style={{ position: "absolute", left: 2, bottom: 10 }}
               onPress={() => router.replace("/")}
             />
           </Pressable>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   card: {
-    paddingTop: "30%",
+    paddingTop: "10%",
   },
   title: {
     fontSize: 24,

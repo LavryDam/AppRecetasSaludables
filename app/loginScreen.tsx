@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     fontSize: 20,
-    marginLeft: 10,
+    marginLeft: 8,
     color: "#333",
   },
   title: {
