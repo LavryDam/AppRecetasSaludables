@@ -118,35 +118,35 @@ const styles = StyleSheet.create({
   },
   card: {
     flexDirection: "row",
-    margin: 15,
-    borderRadius: 15,
+    margin: 10,
+    borderRadius: 12,
     overflow: "hidden",
-    elevation: 4,
+    elevation: 3,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.15,
+    shadowRadius: 3,
     backgroundColor: "#fff",
   },
   cardImage: {
-    width: 125,
-    height: 140,
+    width: 100,
+    height: 110,
     resizeMode: "cover",
   },
   cardContent: {
     flex: 1,
-    padding: 15,
+    padding: 10, // Reducir el padding
     backgroundColor: "#FAF3E0",
   },
   cardTitle: {
-    fontSize: 17,
+    fontSize: 15, // Reducir el tamaño de la fuente
     fontWeight: "bold",
     color: "#333",
-    marginBottom: 5,
+    marginBottom: 4, // Reducir el margen inferior
   },
   cardDescription: {
-    fontSize: 13,
+    fontSize: 12, // Reducir el tamaño de la fuente
     color: "#666",
-    lineHeight: 20,
+    lineHeight: 18, // Reducir el interlineado
   },
 });

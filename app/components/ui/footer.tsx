@@ -37,8 +37,8 @@ const Footer = () => {
       <Pressable onPress={() => handleNavigation("/CrearReceta")}>
         <Ionicons
           style={styles.icon}
-          name="add-outline"
-          size={25}
+          name="add-circle-outline"
+          size={30}
           color="black"
         />
       </Pressable>
@@ -60,7 +60,7 @@ const Footer = () => {
 const styles = StyleSheet.create({
   footer: {
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "#FFDAB9",
     paddingVertical: 15,
