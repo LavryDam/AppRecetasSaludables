@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 
-const img = require("../../../assets/images/splash.png");
+const img = require("../../../assets/images/splashscreen_logo.png");
 
 const Header = () => {
   return (
