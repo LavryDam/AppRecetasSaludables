@@ -4,58 +4,58 @@ import React from "react";
 import "react-native-reanimated";
 
 export default function RootLayout() {
+  // Estilos comunes para los headers
+  const commonHeaderStyle = {
+    backgroundColor: "#FFDAB9",
+  };
+
   return (
     <>
       <StatusBar style="auto" />
       <Stack
         screenOptions={{
-          headerShown: true,
+          headerShown: true, // Mostrar encabezado
         }}
       >
         <Stack.Screen
           name="index"
-          options={{ title: "", headerShown: false }}
+          options={{
+            title: "",
+            headerShown: false,
+          }}
         />
         <Stack.Screen
           name="BuscarRecetas"
           options={{
             title: "",
-            headerShown: true,
-            headerStyle: { backgroundColor: "#FFDAB9" },
+            headerShown: false,
           }}
         />
         <Stack.Screen
           name="CrearReceta"
           options={{
             title: "Nueva receta",
-            headerShown: true,
-            headerStyle: { backgroundColor: "#FFDAB9" },
-            headerTintColor: "#333",
-            headerTitleStyle: {
-              fontWeight: "bold",
-              fontSize: 20,
-            },
+            headerShown: false,
           }}
         />
         <Stack.Screen
           name="DetallesRecetas"
-          options={{ title: "Nueva Receta", headerShown: false }}
+          options={{
+            title: "Nueva Receta",
+            headerShown: false,
+          }}
         />
         <Stack.Screen
           name="GuardarRecetas"
-          options={{ title: "", headerShown: false }}
+          options={{
+            title: "",
+            headerShown: false,
+          }}
         />
         <Stack.Screen
           name="loginScreen"
           options={{
-            title: "Inicio sesión",
-            headerShown: true,
-            headerStyle: { backgroundColor: "#FFDAB9" },
-            headerTintColor: "#333",
-            headerTitleStyle: {
-              fontWeight: "bold",
-              fontSize: 20,
-            },
+            headerShown: false,
           }}
         />
       </Stack>

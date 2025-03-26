@@ -1,8 +1,16 @@
 import { FontAwesome, Feather } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
 import React, { useState } from "react";
-import { Alert, FlatList, Platform, Pressable, ScrollView } from "react-native";
-import { StyleSheet, View, Image, Text } from "react-native";
+import {
+  Alert,
+  FlatList,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  View,
+  Image,
+  Text,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import data from "../app/components/ui/constants";
 import { useSearchParams } from "expo-router/build/hooks";
@@ -11,12 +19,12 @@ const DetallesRecetas = () => {
   const navigation = useNavigation();
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
-  const [isSaved, setIsSaved] = useState(false); // Estado para manejar si la receta está guardada
+  const [isSaved, setIsSaved] = useState(false);
 
   const recipe = id ? data.find((item) => item.id === parseInt(id)) : null;
 
   const toggleSaveRecipe = () => {
-    setIsSaved(!isSaved); // Alternar entre guardado y no guardado
+    setIsSaved((prevState) => !prevState);
     Alert.alert(
       isSaved ? "Receta retirada" : "Receta guardada",
       isSaved
@@ -25,39 +33,38 @@ const DetallesRecetas = () => {
     );
   };
 
-  // Si no se encuentra la receta, mostramos un mensaje
   if (!recipe) {
     return (
-      <View style={style.container}>
-        <Text>Receta no encontrada</Text>
+      <View style={styles.container}>
+        <Text style={styles.errorText}>Receta no encontrada</Text>
       </View>
     );
   }
 
   return (
-    <View style={style.container}>
-      <SafeAreaView style={{ flexDirection: "row", padding: 5 }}>
-        <Pressable style={{ flex: 1 }}>
-          <FontAwesome
-            name="heart"
-            size={30}
-            color={isSaved ? "red" : "violet"}
-            style={{ position: "absolute", right: 16, bottom: -40 }}
-            onPress={toggleSaveRecipe}
-          />
-          <Feather
-            name="arrow-left"
-            size={34}
-            color="black"
-            style={{ position: "absolute", left: 16, bottom: -43 }}
+    <View style={styles.container}>
+      <SafeAreaView>
+        <View style={styles.header}>
+          <Pressable
             onPress={() => navigation.goBack()}
-          />
-        </Pressable>
+            style={styles.backButton}
+          >
+            <Feather name="arrow-left" size={28} color="black" />
+          </Pressable>
+          <Pressable onPress={toggleSaveRecipe} style={styles.saveButton}>
+            <FontAwesome
+              name="heart"
+              size={28}
+              color={isSaved ? "red" : "violet"}
+            />
+          </Pressable>
+        </View>
       </SafeAreaView>
-      <View style={style.card}>
-        <View style={style.card2}>
+
+      <View style={styles.card}>
+        <View style={styles.imageContainer}>
           <Image
-            style={style.imagen}
+            style={styles.image}
             source={require("../assets/images/imagenCocina.jpg")}
           />
         </View>
@@ -65,18 +72,16 @@ const DetallesRecetas = () => {
           data={[recipe]}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <ScrollView style={style.scrollContent}>
-              <View>
-                <Text style={style.title}>{item.name}</Text>
-                <Text style={style.text}>Ingredientes:</Text>
-                {item.ingredients.map((ingredient, index) => (
-                  <Text key={index} style={style.description}>
-                    • {ingredient}
-                  </Text>
-                ))}
-                <Text style={style.text}>Prepración:</Text>
-                <Text style={style.description}>{item.instructions}</Text>
-              </View>
+            <ScrollView style={styles.scrollContent}>
+              <Text style={styles.title}>{item.name}</Text>
+              <Text style={styles.sectionTitle}>Ingredientes:</Text>
+              {item.ingredients.map((ingredient, index) => (
+                <Text key={index} style={styles.listItem}>
+                  • {ingredient}
+                </Text>
+              ))}
+              <Text style={styles.sectionTitle}>Preparación:</Text>
+              <Text style={styles.description}>{item.instructions}</Text>
             </ScrollView>
           )}
           showsVerticalScrollIndicator={false}
@@ -88,53 +93,77 @@ const DetallesRecetas = () => {
 
 export default DetallesRecetas;
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#E0F8E0",
   },
-  card: {
-    backgroundColor: "#fff",
-    height: Platform.OS === "ios" ? "65%" : "70%",
-    marginTop: 220,
-    borderTopLeftRadius: 56,
-    borderTopRightRadius: 56,
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 25,
+    paddingHorizontal: 16,
+    paddingTop: 10,
   },
-  card2: {
-    height: 200,
-    width: 200,
-    top: -100,
+  backButton: {
+    padding: 10,
+  },
+  saveButton: {
+    padding: 10,
+  },
+  card: {
+    flex: 1,
+    backgroundColor: "#fff",
+    marginTop: 100,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    alignItems: "center",
+    padding: 20,
+  },
+  imageContainer: {
+    height: 170,
+    width: 170,
     position: "absolute",
+    top: -90,
   },
-  imagen: {
+  image: {
     height: "100%",
     width: "100%",
     resizeMode: "cover",
-    borderRadius: 56,
+    borderRadius: 100,
   },
   title: {
-    color: "#000",
-    fontSize: 25,
-    marginTop: 120,
+    fontSize: 26,
     fontWeight: "bold",
     textAlign: "center",
+    color: "#333",
+    marginBottom: 10,
+    marginTop: 75,
   },
-  text: {
-    color: "#000",
-    fontSize: 18,
-    marginVertical: 16,
-    marginRight: "60%",
+  sectionTitle: {
+    fontSize: 20,
     fontWeight: "bold",
+    color: "#333",
+    marginVertical: 10,
+  },
+  listItem: {
+    fontSize: 16,
+    color: "#555",
+    lineHeight: 24,
   },
   description: {
-    color: "#000",
     fontSize: 16,
-    lineHeight: 22,
-    paddingHorizontal: 20,
+    color: "#555",
+    lineHeight: 24,
+    marginTop: 10,
   },
   scrollContent: {
-    paddingBottom: 90,
+    marginBottom: 20,
+  },
+  errorText: {
+    fontSize: 18,
+    color: "red",
+    textAlign: "center",
+    marginTop: 50,
   },
 });

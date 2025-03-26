@@ -15,40 +15,56 @@ const LoginScreen = () => {
     alert("Google Sign In");
   };
 
+  const handleBackPress = () => {
+    router.replace("/");
+  };
+
   return (
     <View style={styles.container}>
-      <SafeAreaView style={styles.backContainer}>
-        <Pressable onPress={() => router.replace("/")}>
-          <Feather name="arrow-left" size={30} color="black" />
-        </Pressable>
-        <Text style={styles.backText}>Volver</Text>
+      <SafeAreaView>
+        <View style={styles.header}>
+          <Pressable
+            onPress={handleBackPress}
+            style={styles.backButton}
+            accessibilityLabel="Volver a la pantalla principal"
+          >
+            <Feather name="arrow-left" size={30} color="black" />
+            <Text style={styles.backText}>Inicio</Text>
+          </Pressable>
+        </View>
       </SafeAreaView>
-      <Text style={styles.title}>Hola Yummy</Text>
-      <Text style={styles.subtitle}>Inicia sesión para continuar</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Correo electrónico"
-        placeholderTextColor="#aaa"
-        keyboardType="email-address"
-        autoCapitalize="none"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Contraseña"
-        placeholderTextColor="#aaa"
-        secureTextEntry
-      />
-      <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>Iniciar</Text>
-      </Pressable>
-      <Text style={styles.orText}>O inicia sesión con:</Text>
-      <Pressable style={styles.googleButton} onPress={handleGoogleSignIn}>
-        <Ionicons name="logo-google" size={20} color="#fff" />
-        <Text style={styles.googleButtonText}>Continuar con Google</Text>
-      </Pressable>
-      <Pressable>
-        <Text style={styles.signupText}>¿No tienes cuenta? Regístrate</Text>
-      </Pressable>
+      <View style={styles.content}>
+        <Text style={styles.title}>Hola Yummy</Text>
+        <Text style={styles.subtitle}>Inicia sesión para continuar</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Correo electrónico"
+          placeholderTextColor="#aaa"
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Contraseña"
+          placeholderTextColor="#aaa"
+          secureTextEntry
+        />
+        <Pressable style={styles.button}>
+          <Text style={styles.buttonText}>Iniciar</Text>
+        </Pressable>
+        <Text style={styles.orText}>O inicia sesión con:</Text>
+        <Pressable
+          style={styles.googleButton}
+          onPress={handleGoogleSignIn}
+          accessibilityLabel="Iniciar sesión con Google"
+        >
+          <Ionicons name="logo-google" size={20} color="#fff" />
+          <Text style={styles.googleButtonText}>Continuar con Google</Text>
+        </Pressable>
+        <Pressable>
+          <Text style={styles.signupText}>¿No tienes cuenta? Regístrate</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -59,22 +75,34 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#E0F8E0",
-    paddingHorizontal: 20,
-    alignItems: "center",
-    justifyContent: "flex-start",
-    paddingTop: 80,
   },
-  backContainer: {
+  header: {
     flexDirection: "row",
     alignItems: "center",
-    position: "absolute",
-    top: 20,
-    left: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    paddingTop: 60,
+    backgroundColor: "#FFDAB9",
+    elevation: 3,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
+  },
+  backButton: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   backText: {
     fontSize: 20,
     marginLeft: 8,
     color: "#333",
+  },
+  content: {
+    flex: 1,
+    alignItems: "center",
+    paddingHorizontal: 20,
+    marginTop: 30,
   },
   title: {
     fontSize: 26,

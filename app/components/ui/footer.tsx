@@ -4,55 +4,60 @@ import { Ionicons } from "@expo/vector-icons";
 import { usePathname, useRouter } from "expo-router";
 
 const Footer = () => {
-  const router = useRouter(); // obtiene el router
-  const pathname = usePathname(); // obtiene la ruta actual
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Definición de las rutas y sus respectivos iconos
+  const routes: {
+    route: string;
+    icon:
+      | "home-outline"
+      | "search"
+      | "add-circle-outline"
+      | "heart"
+      | "person-outline";
+  }[] = [
+    { route: "/", icon: "home-outline" },
+    { route: "/BuscarRecetas", icon: "search" },
+    { route: "/CrearReceta", icon: "add-circle-outline" },
+    { route: "/GuardarRecetas", icon: "heart" },
+    { route: "/loginScreen", icon: "person-outline" },
+  ];
 
   const handleNavigation = (
     route:
-      | "/"
-      | "/BuscarRecetas"
-      | "/GuardarRecetas"
-      | "/CrearReceta"
-      | "/loginScreen",
+      | string
+      | { pathname: `/BuscarRecetas` }
+      | { pathname: `/CrearReceta` }
+      | { pathname: `/DetallesRecetas` }
+      | { pathname: `/GuardarRecetas` }
+      | { pathname: `/` }
+      | { pathname: `/loginScreen` },
   ) => {
     if (pathname !== route) {
-      // Navega solo si no estás ya en la ruta actual
-      router.replace(route);
+      router.replace(
+        route as
+          | "/"
+          | "/BuscarRecetas"
+          | "/CrearReceta"
+          | "/GuardarRecetas"
+          | "/loginScreen",
+      );
     }
   };
 
   return (
     <View style={styles.footer}>
-      <Pressable onPress={() => handleNavigation("/")}>
-        <Ionicons
-          style={styles.icon}
-          name="home-outline"
-          size={25}
-          color="black"
-        />
-      </Pressable>
-      <Pressable onPress={() => handleNavigation("/BuscarRecetas")}>
-        <Ionicons style={styles.icon} name="search" size={25} color="black" />
-      </Pressable>
-      <Pressable onPress={() => handleNavigation("/CrearReceta")}>
-        <Ionicons
-          style={styles.icon}
-          name="add-circle-outline"
-          size={30}
-          color="black"
-        />
-      </Pressable>
-      <Pressable onPress={() => handleNavigation("/GuardarRecetas")}>
-        <Ionicons style={styles.icon} name="heart" size={25} color="black" />
-      </Pressable>
-      <Pressable onPress={() => handleNavigation("/loginScreen")}>
-        <Ionicons
-          style={styles.icon}
-          name="person-outline"
-          size={25}
-          color="black"
-        />
-      </Pressable>
+      {routes.map(({ route, icon }) => (
+        <Pressable key={route} onPress={() => handleNavigation(route)}>
+          <Ionicons
+            style={styles.icon}
+            name={icon}
+            size={24}
+            color={pathname === route ? "#FF6347" : "black"} // Cambia color si está activa
+          />
+        </Pressable>
+      ))}
     </View>
   );
 };
@@ -60,25 +65,23 @@ const Footer = () => {
 const styles = StyleSheet.create({
   footer: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     alignItems: "center",
     backgroundColor: "#FFDAB9",
-    paddingVertical: 15,
-    paddingHorizontal: 20,
+    paddingVertical: 12,
     borderTopWidth: 1,
     borderTopColor: "#ccc",
     position: "absolute",
     bottom: 0,
     width: "100%",
-    height: "8%",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: -2 },
     shadowOpacity: 0.1,
     shadowRadius: 5,
-    elevation: 3, // Para dispositivos Android, para que la sombra se vea
+    elevation: 3,
   },
   icon: {
-    marginBottom: Platform.OS === "ios" ? 10 : -1,
+    marginBottom: Platform.OS === "ios" ? 10 : 0,
   },
 });
 

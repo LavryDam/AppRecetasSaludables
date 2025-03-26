@@ -27,6 +27,10 @@ export default function CrearReceta() {
     checkbox5: false,
   });
 
+  const handleBackPress = () => {
+    router.replace("/");
+  };
+
   const handleSaveRecipe = () => {
     if (!title || !ingredients || !steps) {
       Alert.alert("Error", "Por favor completa todos los campos.");
@@ -66,15 +70,23 @@ export default function CrearReceta() {
         <SafeAreaView
           style={{ flexDirection: "row", alignItems: "center", padding: 25 }}
         >
-          <Pressable
-            style={{ flexDirection: "row", alignItems: "center" }}
-            onPress={() => router.replace("/")}
-          >
-            <Feather name="arrow-left" size={30} color="#333" />
-            <Text style={{ marginLeft: 8, fontSize: 20, color: "#333" }}>
-              Inicio
-            </Text>
-          </Pressable>
+          <View style={styles.header}>
+            <Pressable
+              onPress={handleBackPress}
+              style={styles.backButton}
+              accessibilityLabel="Volver a la pantalla principal"
+            >
+              <Feather
+                name="arrow-left"
+                size={30}
+                color="black"
+                style={{ position: "absolute", right: 60, bottom: -2 }}
+              />
+              <Text style={{ marginLeft: 8, fontSize: 20, color: "#333" }}>
+                Inicio
+              </Text>
+            </Pressable>
+          </View>
         </SafeAreaView>
         <View style={styles.container}>
           <TextInput
@@ -169,6 +181,30 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 25,
     marginTop: Platform.OS === "ios" ? 40 : -25,
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+    paddingTop: 60,
+    backgroundColor: "#FFDAB9",
+    paddingVertical: 20,
+    elevation: 5,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 3 },
+  },
+  backButton: {
+    padding: 10,
+  },
+  saveButton: {
+    padding: 10,
+  },
+  backText: {
+    fontSize: 20,
+    color: "black",
+    marginLeft: 45,
   },
   title: {
     fontSize: 24,
