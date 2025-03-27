@@ -1,35 +1,26 @@
 import React from "react";
 import { View, Text, StyleSheet, Pressable, SafeAreaView } from "react-native";
-import Footer from "./components/ui/footer";
 import { Feather } from "@expo/vector-icons";
 import { router } from "expo-router";
 
 export default function GuardarRecetas() {
   return (
-    <>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <SafeAreaView>
-            <Pressable>
-              <Feather
-                name="arrow-left"
-                size={30}
-                color="black"
-                style={{ position: "absolute", right: 135, bottom: -32 }}
-                onPress={() => router.replace("/")}
-              />
-            </Pressable>
-          </SafeAreaView>
-          <Text style={styles.title}>Recetas guardadas</Text>
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.placeholder}>
-            No tienes recetas guardadas todavía.
-          </Text>
-        </View>
+    <View style={styles.container}>
+      <SafeAreaView style={styles.headerContainer}>
+        <Pressable
+          style={styles.backButton}
+          onPress={() => router.replace("/")}
+        >
+          <Feather name="arrow-left" size={24} color="black" />
+          <Text style={styles.backText}>Recetas guardadas</Text>
+        </Pressable>
+      </SafeAreaView>
+      <View style={styles.content}>
+        <Text style={styles.placeholder}>
+          No tienes recetas guardadas todavía.
+        </Text>
       </View>
-      <Footer />
-    </>
+    </View>
   );
 }
 
@@ -38,19 +29,26 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#E0F8E0",
   },
-  header: {
+  headerContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 20,
     paddingTop: 60,
     backgroundColor: "#FFDAB9",
-    paddingVertical: 20,
-    alignItems: "center",
     elevation: 5,
     shadowColor: "#000",
     shadowOpacity: 0.2,
     shadowRadius: 5,
     shadowOffset: { width: 0, height: 3 },
   },
-  title: {
-    fontSize: 22,
+  backButton: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  backText: {
+    marginLeft: 8,
+    fontSize: 20,
     fontWeight: "bold",
     color: "#333",
   },

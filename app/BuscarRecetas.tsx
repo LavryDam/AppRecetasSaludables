@@ -31,20 +31,15 @@ export default function BuscarRecetas() {
             style={styles.backButton}
             accessibilityLabel="Volver a la pantalla principal"
           >
-            <Feather
-              name="arrow-left"
-              size={30}
-              color="black"
-              style={{ position: "absolute", right: 60, bottom: -2 }}
-            />
+            <Feather name="arrow-left" size={24} color="black" />
             <Text style={styles.backText}>Volver</Text>
           </Pressable>
         </View>
       </SafeAreaView>
-      <View style={styles.card}>
+      <View style={styles.content}>
         <Text style={styles.title}>¿Qué receta buscas?</Text>
         <View style={styles.inputContainer}>
-          <Feather name="search" size={20} color="#999" style={styles.icon} />
+          <Feather name="search" size={20} color="#999" />
           <TextInput
             style={styles.input}
             placeholder="Escribe el nombre de la receta"
@@ -56,10 +51,10 @@ export default function BuscarRecetas() {
           {text.length > 0 && (
             <TouchableOpacity
               onPress={handleClearInput}
-              style={styles.cancelButton}
+              style={styles.clearButton}
               accessibilityLabel="Borrar texto de búsqueda"
             >
-              <Text style={styles.cancelText}>Cancelar</Text>
+              <Feather name="x-circle" size={20} color="#999" />
             </TouchableOpacity>
           )}
         </View>
@@ -76,10 +71,10 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 10,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
     paddingTop: 60,
     backgroundColor: "#FFDAB9",
-    paddingVertical: 20,
     elevation: 5,
     shadowColor: "#000",
     shadowOpacity: 0.2,
@@ -91,20 +86,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   backText: {
+    marginLeft: 8,
     fontSize: 20,
-    color: "black",
-    marginLeft: 45,
+    color: "#333",
   },
-  card: {
-    marginTop: 20,
-    paddingHorizontal: 10,
+  content: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingTop: 25,
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     color: "#333",
-    marginBottom: 20,
     textAlign: "center",
+    marginBottom: 20,
   },
   inputContainer: {
     flexDirection: "row",
@@ -115,22 +111,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingHorizontal: 10,
     height: 50,
-  },
-  icon: {
-    marginRight: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
   },
   input: {
     flex: 1,
     fontSize: 16,
     color: "#333",
+    marginLeft: 10,
   },
-  cancelButton: {
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-  },
-  cancelText: {
-    fontSize: 16,
-    color: "#007BFF",
-    fontWeight: "bold",
+  clearButton: {
+    marginLeft: 10,
   },
 });

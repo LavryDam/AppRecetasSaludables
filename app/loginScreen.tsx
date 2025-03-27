@@ -28,7 +28,7 @@ const LoginScreen = () => {
             style={styles.backButton}
             accessibilityLabel="Volver a la pantalla principal"
           >
-            <Feather name="arrow-left" size={30} color="black" />
+            <Feather name="arrow-left" size={24} color="black" />
             <Text style={styles.backText}>Inicio</Text>
           </Pressable>
         </View>
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 20,
     paddingTop: 60,
     backgroundColor: "#FFDAB9",
     elevation: 3,
