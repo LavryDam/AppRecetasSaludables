@@ -4,38 +4,44 @@
     "slug": "AppRecetasSaludables",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/images/splashscreen_logo.png",
+    "scheme": "AppRecetasSaludables",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#E0F8E0",
+      "image": "./assets/images/splashscreen_logo.png",
+      "resizeMode": "contain"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dina.apprecetassaludables",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/splashscreen_logo.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.dina.apprecetassaludables"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/splashscreen_logo.png"
     },
-    "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ]
-    ],
     "experiments": {
       "typedRoutes": true
+    },
+    "plugins": [
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "c155ac54-da12-4ce3-b951-8744d0165a5d"
+      }
     }
   }
 }
