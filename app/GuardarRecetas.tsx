@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, Pressable, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  SafeAreaView,
+  Platform,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { router } from "expo-router";
 
@@ -51,7 +58,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#333",
     textAlign: "center",
-    marginTop: 30,
+    marginTop: Platform.OS === "ios" ? 30 : 20,
   },
   content: {
     flex: 1,

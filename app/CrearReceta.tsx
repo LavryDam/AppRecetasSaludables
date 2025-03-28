@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 25,
-    marginTop: Platform.OS === "ios" ? 10 : 20,
+    marginTop: Platform.OS === "ios" ? 10 : 0,
   },
   input: {
     height: 50,
