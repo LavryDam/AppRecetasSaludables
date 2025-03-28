@@ -14,6 +14,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import data from "../app/components/ui/constants";
 import { useSearchParams } from "expo-router/build/hooks";
+import { Platform } from "react-native";
 
 const DetallesRecetas = () => {
   const navigation = useNavigation();
@@ -70,9 +71,10 @@ const DetallesRecetas = () => {
         </View>
         <FlatList
           data={[recipe]}
+          bounces={false} // Desactiva el efecto de rebote
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <ScrollView style={styles.scrollContent}>
+            <ScrollView style={styles.scrollContent} bounces={false}>
               <Text style={styles.title}>{item.name}</Text>
               <Text style={styles.sectionTitle}>Ingredientes:</Text>
               {item.ingredients.map((ingredient, index) => (
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     backgroundColor: "#fff",
-    marginTop: 100,
+    marginTop: Platform.OS === "ios" ? 80 : 100,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     alignItems: "center",

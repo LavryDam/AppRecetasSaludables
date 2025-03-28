@@ -29,14 +29,14 @@ export default function RootLayout() {
         <Stack.Screen
           name="CrearReceta"
           options={{
-            title: "Nueva receta",
+            title: "",
             headerShown: false,
           }}
         />
         <Stack.Screen
           name="DetallesRecetas"
           options={{
-            title: "Nueva Receta",
+            title: "",
             headerShown: false,
           }}
         />

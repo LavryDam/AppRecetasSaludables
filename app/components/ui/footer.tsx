@@ -48,6 +48,7 @@ const Footer = () => {
 
   return (
     <View style={styles.footer}>
+      // Mapeo de las rutas y sus respectivos iconos
       {routes.map(({ route, icon }) => (
         <Pressable key={route} onPress={() => handleNavigation(route)}>
           <Ionicons
@@ -65,7 +66,7 @@ const Footer = () => {
 const styles = StyleSheet.create({
   footer: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: Platform.OS === "ios" ? "space-evenly" : "space-around",
     alignItems: "center",
     backgroundColor: "#FFDAB9",
     paddingVertical: 12,

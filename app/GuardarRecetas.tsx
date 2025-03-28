@@ -12,9 +12,9 @@ export default function GuardarRecetas() {
           onPress={() => router.replace("/")}
         >
           <Feather name="arrow-left" size={24} color="black" />
-          <Text style={styles.backText}>Recetas guardadas</Text>
         </Pressable>
       </SafeAreaView>
+      <Text style={styles.backText}>Recetas guardadas</Text>
       <View style={styles.content}>
         <Text style={styles.placeholder}>
           No tienes recetas guardadas todavía.
@@ -47,10 +47,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   backText: {
-    marginLeft: 8,
     fontSize: 20,
     fontWeight: "bold",
     color: "#333",
+    textAlign: "center",
+    marginTop: 30,
   },
   content: {
     flex: 1,
@@ -61,6 +62,5 @@ const styles = StyleSheet.create({
   placeholder: {
     fontSize: 18,
     color: "#999",
-    textAlign: "center",
   },
 });

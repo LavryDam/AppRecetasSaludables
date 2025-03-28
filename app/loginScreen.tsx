@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Pressable,
   SafeAreaView,
+  Platform,
 } from "react-native";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
@@ -29,7 +30,6 @@ const LoginScreen = () => {
             accessibilityLabel="Volver a la pantalla principal"
           >
             <Feather name="arrow-left" size={24} color="black" />
-            <Text style={styles.backText}>Inicio</Text>
           </Pressable>
         </View>
       </SafeAreaView>
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     paddingVertical: 20,
-    paddingTop: 60,
+    paddingTop: Platform.OS === "ios" ? 20 : 60,
     backgroundColor: "#FFDAB9",
     elevation: 3,
     shadowColor: "#000",
