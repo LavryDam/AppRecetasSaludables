@@ -48,7 +48,6 @@ const Footer = () => {
 
   return (
     <View style={styles.footer}>
-      // Mapeo de las rutas y sus respectivos iconos
       {routes.map(({ route, icon }) => (
         <Pressable key={route} onPress={() => handleNavigation(route)}>
           <Ionicons
