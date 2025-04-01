@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, Pressable, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  SafeAreaView,
+  Platform,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { router } from "expo-router";
 
@@ -12,9 +19,9 @@ export default function GuardarRecetas() {
           onPress={() => router.replace("/")}
         >
           <Feather name="arrow-left" size={24} color="black" />
-          <Text style={styles.backText}>Recetas guardadas</Text>
         </Pressable>
       </SafeAreaView>
+      <Text style={styles.backText}>Recetas guardadas</Text>
       <View style={styles.content}>
         <Text style={styles.placeholder}>
           No tienes recetas guardadas todavía.
@@ -45,12 +52,15 @@ const styles = StyleSheet.create({
   backButton: {
     flexDirection: "row",
     alignItems: "center",
+    marginBottom: Platform.OS === "ios" ? 20 : 0,
+    marginLeft: Platform.OS === "ios" ? 15 : 0,
   },
   backText: {
-    marginLeft: 8,
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
     color: "#333",
+    textAlign: "center",
+    marginTop: Platform.OS === "ios" ? 25 : 20,
   },
   content: {
     flex: 1,
@@ -61,6 +71,5 @@ const styles = StyleSheet.create({
   placeholder: {
     fontSize: 18,
     color: "#999",
-    textAlign: "center",
   },
 });

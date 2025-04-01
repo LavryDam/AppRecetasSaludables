@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Pressable,
   SafeAreaView,
+  Platform,
 } from "react-native";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
@@ -21,15 +22,14 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView>
-        <View style={styles.header}>
+      <SafeAreaView style={styles.header}>
+        <View>
           <Pressable
             onPress={handleBackPress}
             style={styles.backButton}
             accessibilityLabel="Volver a la pantalla principal"
           >
             <Feather name="arrow-left" size={24} color="black" />
-            <Text style={styles.backText}>Inicio</Text>
           </Pressable>
         </View>
       </SafeAreaView>
@@ -81,31 +81,28 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
     paddingVertical: 20,
-    paddingTop: 60,
+    paddingTop: Platform.OS === "ios" ? 20 : 60,
     backgroundColor: "#FFDAB9",
     elevation: 3,
     shadowColor: "#000",
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.2,
     shadowRadius: 5,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: 3 },
   },
   backButton: {
     flexDirection: "row",
     alignItems: "center",
-  },
-  backText: {
-    fontSize: 20,
-    marginLeft: 8,
-    color: "#333",
+    marginBottom: Platform.OS === "ios" ? 20 : 0,
+    marginLeft: Platform.OS === "ios" ? 15 : 0,
   },
   content: {
     flex: 1,
     alignItems: "center",
     paddingHorizontal: 20,
-    marginTop: 30,
+    marginTop: 25,
   },
   title: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: "bold",
     color: "#333",
     marginBottom: 10,

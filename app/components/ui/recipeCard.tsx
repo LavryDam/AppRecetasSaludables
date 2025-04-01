@@ -55,6 +55,7 @@ export default function RecipeCard() {
       </ScrollView>
       <FlatList
         contentContainerStyle={styles.scrollContainer}
+        bounces={false} // Desactiva el efecto de rebote
         showsVerticalScrollIndicator={false}
         data={filteredData}
         keyExtractor={(item) => item.id.toString()}

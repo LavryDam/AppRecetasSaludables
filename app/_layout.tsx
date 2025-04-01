@@ -4,11 +4,6 @@ import React from "react";
 import "react-native-reanimated";
 
 export default function RootLayout() {
-  // Estilos comunes para los headers
-  const commonHeaderStyle = {
-    backgroundColor: "#FFDAB9",
-  };
-
   return (
     <>
       <StatusBar style="auto" />
@@ -34,14 +29,14 @@ export default function RootLayout() {
         <Stack.Screen
           name="CrearReceta"
           options={{
-            title: "Nueva receta",
+            title: "",
             headerShown: false,
           }}
         />
         <Stack.Screen
           name="DetallesRecetas"
           options={{
-            title: "Nueva Receta",
+            title: "",
             headerShown: false,
           }}
         />

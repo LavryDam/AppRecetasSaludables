@@ -1,6 +1,7 @@
 import { Feather } from "@expo/vector-icons";
 import { router } from "expo-router";
 import React, { useState } from "react";
+import { Platform } from "react-native";
 import {
   View,
   Text,
@@ -24,15 +25,14 @@ export default function BuscarRecetas() {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView>
-        <View style={styles.header}>
+      <SafeAreaView style={styles.header}>
+        <View>
           <Pressable
             onPress={handleBackPress}
             style={styles.backButton}
             accessibilityLabel="Volver a la pantalla principal"
           >
             <Feather name="arrow-left" size={24} color="black" />
-            <Text style={styles.backText}>Volver</Text>
           </Pressable>
         </View>
       </SafeAreaView>
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 20,
     paddingHorizontal: 20,
-    paddingTop: 60,
+    paddingTop: Platform.OS === "ios" ? 20 : 60,
     backgroundColor: "#FFDAB9",
     elevation: 5,
     shadowColor: "#000",
@@ -84,14 +84,10 @@ const styles = StyleSheet.create({
   backButton: {
     flexDirection: "row",
     alignItems: "center",
-  },
-  backText: {
-    marginLeft: 8,
-    fontSize: 20,
-    color: "#333",
+    marginBottom: Platform.OS === "ios" ? 20 : 0,
+    marginLeft: Platform.OS === "ios" ? 15 : 0,
   },
   content: {
-    flex: 1,
     paddingHorizontal: 20,
     paddingTop: 25,
   },

@@ -53,9 +53,18 @@ export default function CrearReceta() {
       <SafeAreaView style={styles.headerContainer}>
         <Pressable onPress={handleBackPress} style={styles.backButton}>
           <Feather name="arrow-left" size={24} color="black" />
-          <Text style={styles.backText}>Nueva receta</Text>
         </Pressable>
       </SafeAreaView>
+      <Text
+        style={{
+          fontSize: 24,
+          textAlign: "center",
+          marginTop: 25,
+          fontWeight: "bold",
+        }}
+      >
+        Crear nueva receta
+      </Text>
       <View style={styles.container}>
         <TextInput
           style={styles.input}
@@ -145,17 +154,13 @@ const styles = StyleSheet.create({
   backButton: {
     flexDirection: "row",
     alignItems: "center",
-  },
-  backText: {
-    fontSize: 20,
-    color: "black",
-    marginLeft: 8,
-    fontWeight: "bold",
+    marginBottom: Platform.OS === "ios" ? 20 : 0,
+    marginLeft: Platform.OS === "ios" ? 15 : 0,
   },
   container: {
     flex: 1,
     padding: 25,
-    marginTop: Platform.OS === "ios" ? 40 : 20,
+    marginTop: Platform.OS === "ios" ? 10 : 0,
   },
   input: {
     height: 50,
