@@ -25,8 +25,8 @@ export default function BuscarRecetas() {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView>
-        <View style={styles.header}>
+      <SafeAreaView style={styles.header}>
+        <View>
           <Pressable
             onPress={handleBackPress}
             style={styles.backButton}
@@ -84,14 +84,10 @@ const styles = StyleSheet.create({
   backButton: {
     flexDirection: "row",
     alignItems: "center",
-  },
-  backText: {
-    marginLeft: 8,
-    fontSize: 20,
-    color: "#333",
+    marginBottom: Platform.OS === "ios" ? 20 : 0,
+    marginLeft: Platform.OS === "ios" ? 15 : 0,
   },
   content: {
-    flex: 1,
     paddingHorizontal: 20,
     paddingTop: 25,
   },

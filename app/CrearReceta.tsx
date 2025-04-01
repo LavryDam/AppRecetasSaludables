@@ -57,9 +57,9 @@ export default function CrearReceta() {
       </SafeAreaView>
       <Text
         style={{
-          fontSize: 20,
+          fontSize: 24,
           textAlign: "center",
-          marginTop: 30,
+          marginTop: 25,
           fontWeight: "bold",
         }}
       >
@@ -154,6 +154,8 @@ const styles = StyleSheet.create({
   backButton: {
     flexDirection: "row",
     alignItems: "center",
+    marginBottom: Platform.OS === "ios" ? 20 : 0,
+    marginLeft: Platform.OS === "ios" ? 15 : 0,
   },
   container: {
     flex: 1,

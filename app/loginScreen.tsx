@@ -22,8 +22,8 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView>
-        <View style={styles.header}>
+      <SafeAreaView style={styles.header}>
+        <View>
           <Pressable
             onPress={handleBackPress}
             style={styles.backButton}
@@ -85,27 +85,24 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFDAB9",
     elevation: 3,
     shadowColor: "#000",
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.2,
     shadowRadius: 5,
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: 3 },
   },
   backButton: {
     flexDirection: "row",
     alignItems: "center",
-  },
-  backText: {
-    fontSize: 20,
-    marginLeft: 8,
-    color: "#333",
+    marginBottom: Platform.OS === "ios" ? 20 : 0,
+    marginLeft: Platform.OS === "ios" ? 15 : 0,
   },
   content: {
     flex: 1,
     alignItems: "center",
     paddingHorizontal: 20,
-    marginTop: 30,
+    marginTop: 25,
   },
   title: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: "bold",
     color: "#333",
     marginBottom: 10,

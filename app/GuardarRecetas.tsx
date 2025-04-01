@@ -52,13 +52,15 @@ const styles = StyleSheet.create({
   backButton: {
     flexDirection: "row",
     alignItems: "center",
+    marginBottom: Platform.OS === "ios" ? 20 : 0,
+    marginLeft: Platform.OS === "ios" ? 15 : 0,
   },
   backText: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
     color: "#333",
     textAlign: "center",
-    marginTop: Platform.OS === "ios" ? 30 : 20,
+    marginTop: Platform.OS === "ios" ? 25 : 20,
   },
   content: {
     flex: 1,
