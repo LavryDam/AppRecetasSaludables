@@ -21,7 +21,7 @@ const Footer = () => {
     { route: "/BuscarRecetas", icon: "search" },
     { route: "/CrearReceta", icon: "add-circle-outline" },
     { route: "/GuardarRecetas", icon: "heart" },
-    { route: "/loginScreen", icon: "person-outline" },
+    { route: "/Auth", icon: "person-outline" },
   ];
 
   const handleNavigation = (
@@ -32,7 +32,7 @@ const Footer = () => {
       | { pathname: `/DetallesRecetas` }
       | { pathname: `/GuardarRecetas` }
       | { pathname: `/` }
-      | { pathname: `/loginScreen` },
+      | { pathname: `/Auth` },
   ) => {
     if (pathname !== route) {
       router.replace(
@@ -41,7 +41,7 @@ const Footer = () => {
           | "/BuscarRecetas"
           | "/CrearReceta"
           | "/GuardarRecetas"
-          | "/loginScreen",
+          | "/Auth",
       );
     }
   };

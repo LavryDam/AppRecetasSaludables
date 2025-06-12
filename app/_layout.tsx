@@ -48,8 +48,9 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="loginScreen"
+          name="Auth"
           options={{
+            title: "",
             headerShown: false,
           }}
         />
