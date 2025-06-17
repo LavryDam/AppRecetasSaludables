@@ -54,6 +54,13 @@ export default function RootLayout() {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="SignUp"
+          options={{
+            title: "",
+            headerShown: false,
+          }}
+        />
       </Stack>
     </>
   );

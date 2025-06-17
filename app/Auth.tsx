@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Alert,
   Platform,
@@ -12,11 +12,25 @@ import { supabase } from "./utils/supabase";
 import { Button, Input } from "@rneui/themed";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
+import Icon from "react-native-vector-icons/MaterialIcons";
+import { Session } from "@supabase/supabase-js";
 
 export default function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [session, setSession] = useState<Session | null>(null);
+
+  // Initialize session state and listen for auth state changes
+  // This will set the session when the component mounts and update it on auth state changes
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+  }, []);
 
   const handleBackPress = () => router.replace("/");
 
@@ -31,14 +45,7 @@ export default function Auth() {
   };
 
   const handleSignUp = async () => {
-    setLoading(true);
-    const {
-      data: { session },
-      error,
-    } = await supabase.auth.signUp({ email, password });
-    if (error) Alert.alert("Error", error.message);
-    if (!session) Alert.alert("Revisa tu bandeja para verificar el email.");
-    setLoading(false);
+    router.push("/SignUp");
   };
 
   type SocialButtonProps = {
@@ -78,17 +85,20 @@ export default function Auth() {
       <View style={styles.content}>
         <Text style={styles.title}>Hola Yummy</Text>
         <Text style={styles.subtitle}>Inicia sesión para continuar</Text>
+        <Icon name="email" size={20} color="#888" style={styles.icon} />
+        {session && session.user && <Text>{session.user.id}</Text>}
         <Input
-          leftIcon={{ type: "font-awesome", name: "envelope" }}
+          style={{ left: 20 }}
           onChangeText={setEmail}
           value={email}
-          placeholder="email@address.com"
+          placeholder="Email"
           autoComplete="email"
           autoCapitalize="none"
           keyboardType="email-address"
         />
+        <Icon name="lock" size={20} color="#888" style={styles.icon} />
         <Input
-          leftIcon={{ type: "font-awesome", name: "lock" }}
+          style={{ left: 20 }}
           onChangeText={setPassword}
           value={password}
           secureTextEntry
@@ -180,5 +190,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "500",
     marginLeft: 10,
+  },
+  icon: {
+    top: 33,
+    left: 10,
   },
 });
