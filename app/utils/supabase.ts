@@ -4,7 +4,7 @@ import { createClient, processLock } from "@supabase/supabase-js";
 import { AppState } from "react-native";
 
 // Ensure that the environment variables are set
-export const supabase = createClient(
+const supabase = createClient(
   process.env.EXPO_PUBLIC_SUPABASE_URL || "",
   process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || "",
   {
@@ -26,3 +26,5 @@ AppState.addEventListener("change", (state) => {
     supabase.auth.stopAutoRefresh();
   }
 });
+
+export default supabase;
