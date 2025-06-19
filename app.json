@@ -17,15 +17,31 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.dina.apprecetassaludables",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": ["AppRecetasSaludables"]
+          }
+        ]
       }
     },
     "android": {
+      "package": "com.dina.apprecetassaludables",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/splashscreen_logo.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.dina.apprecetassaludables"
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "AppRecetasSaludables"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
     },
     "web": {
       "bundler": "metro",

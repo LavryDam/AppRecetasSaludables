@@ -8,7 +8,7 @@ import {
   View,
   Text,
 } from "react-native";
-import { supabase } from "./utils/supabase";
+import supabase from "./utils/supabase";
 import { Button, Input } from "@rneui/themed";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";

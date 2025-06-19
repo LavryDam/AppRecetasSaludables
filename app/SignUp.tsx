@@ -12,7 +12,7 @@ import { Input, Button } from "@rneui/themed";
 import { Feather } from "@expo/vector-icons";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { router } from "expo-router";
-import { supabase } from "./utils/supabase";
+import supabase from "./utils/supabase";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
