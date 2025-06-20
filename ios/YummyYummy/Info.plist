@@ -27,8 +27,14 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>AppRecetasSaludables</string>
+          <string>ars</string>
           <string>com.dina.apprecetassaludables</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>exp+apprecetassaludables</string>
         </array>
       </dict>
     </array>

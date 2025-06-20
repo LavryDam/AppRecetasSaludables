@@ -27,6 +27,8 @@
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="AppRecetasSaludables"/>
         <data android:scheme="com.dina.apprecetassaludables"/>
+        <data android:scheme="ars"/>
+        <data android:scheme="exp+apprecetassaludables"/>
       </intent-filter>
     </activity>
   </application>
