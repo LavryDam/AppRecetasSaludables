@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Alert,
   Pressable,
@@ -13,12 +13,14 @@ import { Feather } from "@expo/vector-icons";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { router } from "expo-router";
 import supabase from "./utils/supabase";
+import { useLocalSearchParams } from "expo-router"; // Import for handling query parameters
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
+  const params = useLocalSearchParams();
 
   const handleBackPress = () => router.replace("/Auth");
 
@@ -73,7 +75,7 @@ export default function SignUp() {
         email,
         password,
         options: {
-          emailRedirectTo: "com.ars://confirm",
+          emailRedirectTo: "com.ars://Auth?confirm=true", // URL de redirección después de la confirmación del correo
         },
       });
 
@@ -93,6 +95,13 @@ export default function SignUp() {
       setLoading(false);
     }
   };
+
+  // Show success alert if email confirmation is successful
+  useEffect(() => {
+    if (params?.confirm === "true") {
+      Alert.alert("¡Éxito!", "Tu correo ha sido confirmado correctamente.");
+    }
+  }, [params]);
 
   return (
     <View style={styles.container}>
